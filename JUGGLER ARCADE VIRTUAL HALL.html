@@ -200,7 +200,35 @@ body[data-m=hall] :is(#ad,#rs,#rc,#sb,#si){display:none}body[data-m=prac] #cb{op
 .dr.l{left:0;transform-origin:left center}.dr.l::before{right:10px}.dr.r{right:0;transform-origin:right center}.dr.r::before{left:10px}
 #door.show .dr.l{animation:dl 1.6s .5s cubic-bezier(.65,0,.25,1) forwards}#door.show .dr.r{animation:dr 1.6s .5s cubic-bezier(.65,0,.25,1) forwards}
 @keyframes dl{to{transform:rotateY(-105deg)}}@keyframes dr{to{transform:rotateY(105deg)}}
-@media(prefers-reduced-motion:reduce){.lamp.on,.lamp.rb,#bs.rdy,.sp::after,.pn::before,#cab.shake,.logo h1,.ms i{animation:none}}
+#sc{position:fixed;inset:0;z-index:60;display:none;overflow:hidden;background:#05060a}#sc.show{display:block}#sc.prz{--nc:#ff2a6d}#sc.csh{--nc:#2aff9c}
+#scb{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 0 12vh}
+.sbg{position:absolute;inset:0;background:radial-gradient(70% 50% at 50% 35%,#6a2a5a,#1a0a24 70%)}#sc.csh .sbg{background:repeating-linear-gradient(0deg,#ffffff06 0 2px,#0000 2px 18px),radial-gradient(60% 40% at 50% 30%,#0f3a2a,#05070c 70%)}
+.sg{position:absolute;top:8vh;left:50%;transform:translateX(-50%);font:400 clamp(24px,7vw,44px) 'Dela Gothic One',system-ui;color:#fff;text-shadow:0 0 8px #fff,0 0 24px var(--nc);white-space:nowrap;animation:nf 3s infinite}
+.bk{position:relative;width:min(90vw,440px);margin-top:auto}
+.win{height:34vh;max-height:260px;border:4px solid #8a6a2c;border-radius:14px 14px 0 0;background:linear-gradient(#e8d9b0,#b89c6a);position:relative;overflow:hidden;box-shadow:inset 0 0 30px #0006}
+.stf{position:absolute;left:50%;bottom:0;width:90px;height:160px;margin-left:-45px;animation:nod 2s infinite}
+.hd{position:absolute;left:23px;top:22px;width:44px;height:44px;border-radius:50%;background:#f1c9a5}.hat{position:absolute;left:18px;top:8px;width:54px;height:20px;border-radius:12px 12px 2px 2px;background:#2a4a8a;z-index:1}.bd{position:absolute;left:8px;top:68px;width:74px;height:100px;border-radius:30px 30px 0 0;background:linear-gradient(#2a4a8a,#1a2a5a)}
+@keyframes nod{50%{transform:translateY(4px)}}
+.ctr{position:relative;height:96px;background:linear-gradient(#6a4a2a,#3a2410);border:4px solid #8a6a2c;border-top:0;border-radius:0 0 14px 14px;display:flex;align-items:center;padding:0 12px;gap:10px}
+.cm{background:#050505;border:2px solid #3a3320;border-radius:8px;padding:4px 12px;text-align:center}.cm small{display:block;font-size:10px;color:#9a9484}.cm b{font:800 24px Orbitron,system-ui;color:#ff4a3a;text-shadow:0 0 8px #f22}
+.trz{position:relative;flex:1;height:70px;border-radius:8px;background:linear-gradient(#1a1208,#2a1c0c);box-shadow:inset 0 4px 10px #000}
+.pz{position:absolute;width:38px;height:24px;border-radius:5px;background:linear-gradient(135deg,#fff1b8,#d9b25c 55%,#8a6420);box-shadow:0 2px 4px #000a,inset 0 0 0 2px #fff6;display:grid;place-items:center;font:800 11px system-ui;color:#6a4a10;opacity:0;animation:pzin .5s ease-out var(--dl) forwards}
+@keyframes pzin{from{transform:translate(var(--sx),-120px) scale(.6);opacity:0}30%{opacity:1}to{transform:translate(0,0);opacity:1}}
+.tx{position:relative;z-index:2;margin:14px 10px 0;font:700 16px system-ui,sans-serif;color:#fff1b8;text-shadow:0 2px 6px #000;text-align:center;min-height:24px}
+#sc-skip{position:absolute;right:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:6;background:#000a;border:1px solid #888;color:#fff;border-radius:8px;padding:8px 12px;font:600 13px system-ui,sans-serif;cursor:pointer}
+.bk2{position:relative;width:min(88vw,360px);margin-top:auto}
+.shw{position:relative;height:28vh;max-height:210px;border:5px solid #4a4f5a;border-radius:10px 10px 0 0;background:radial-gradient(#ffe9a8,#8a6a2c 70%);overflow:hidden;box-shadow:0 0 30px #2aff9c55,inset 0 0 40px #0008}
+.shw::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#ffffff22,#0000 40%);pointer-events:none}
+.sht{position:absolute;inset:0;z-index:2;background:repeating-linear-gradient(#5a606c 0 10px,#3a3f4a 10px 12px);transition:transform 1s cubic-bezier(.6,0,.3,1)}.sht.up{transform:translateY(-102%)}
+.shf{position:relative;height:110px;border:5px solid #4a4f5a;border-top:0;border-radius:0 0 10px 10px;background:linear-gradient(#2a2f3a,#14171e)}
+.shf .pz{left:var(--lx);bottom:20px;animation:pzup .7s ease-in var(--dl) forwards}
+@keyframes pzup{0%{transform:translateY(0);opacity:1}70%{opacity:1}100%{transform:translateY(-190px) scale(.5);opacity:0}}
+.bl.bo{left:var(--lx);top:var(--ty);animation:bout .7s ease-out var(--dl) both}
+.co{position:absolute;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff1b8,#d9b25c 55%,#7a5412);display:grid;place-items:center;font:800 9px Orbitron,system-ui;color:#5a3a08;left:var(--lx);top:var(--ty);animation:bout .7s ease-out var(--dl) both;box-shadow:0 2px 4px #000a}
+@keyframes bout{from{transform:translateY(-170px) scale(.6);opacity:0}30%{opacity:1}to{transform:translateY(0) rotate(var(--r));opacity:1}}
+.walk{position:absolute;inset:0;background:#000;display:grid;place-items:center;z-index:4;animation:wk 1.7s forwards}.walk b{color:#cfc8dc;font:600 15px system-ui,sans-serif;padding:0 20px;text-align:center}
+@keyframes wk{0%,70%{opacity:1}100%{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){.lamp.on,.lamp.rb,#bs.rdy,.sp::after,.pn::before,#cab.shake,.logo h1,.ms i,.sg,.stf{animation:none}}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><defs>
 <filter id="vb"><feGaussianBlur stdDeviation="0 3"/></filter>
@@ -233,14 +261,15 @@ body[data-m=hall] :is(#ad,#rs,#rc,#sb,#si){display:none}body[data-m=prac] #cb{op
 <nav class="nv"><button id="au">オート</button><button id="sd">標準</button><button id="da">データ</button><button id="se">設定</button><button id='so'>音ON</button><button id='ex'>退店</button></nav><div class='pbar'><button id='pf1'>強制BIG</button><button id='pf2'>強制REG</button><button id='pf0'>フラグ解除</button></div>
 </main>
 <div class="dlg" id="dd"><div class="cd"><h2>データカウンター</h2><div id="dt" class="dt"></div><button class="x">閉じる</button></div></div>
-<div class="dlg" id="ds"><div class="cd"><h2>設定</h2><div id="sb" class="sb"></div><div id="si" class="dt"></div><label>音量<input id="vl" type="range" min="0" max="1" step=".05"></label><button id="ad">コイン+50</button><button id="rs">データをリセット</button><div id="rc" hidden>全データを初期化します。よろしいですか？<br><button id="ry">初期化する</button> <button class="x">やめる</button></div><button class="x">閉じる</button></div></div>
+<div class="dlg" id="ds"><div class="cd"><h2>設定</h2><div id="sb" class="sb"></div><div id="si" class="dt"></div><label>音量<input id="vl" type="range" min="0" max="1" step=".05"></label><button id='me2'></button><button id="ad">コイン+50</button><button id="rs">データをリセット</button><div id="rc" hidden>全データを初期化します。よろしいですか？<br><button id="ry">初期化する</button> <button class="x">やめる</button></div><button class="x">閉じる</button></div></div>
 <div id="fl"></div><div id="bnr"></div><div id="ts"></div>
-<div class='scr show' id='s-top'><div class='logo'><h1>JUGGLER ARCADE</h1><p>VIRTUAL HALL</p></div><div class='menu'><button class='mb' id='m-in'>入店する</button><button class='mb' id='m-re' hidden>遊技を再開する</button><button class='mb' id='m-pr'>練習する</button><button class='mb' id='m-if'>詳細</button></div><div class='ms'><i></i><i></i><i></i><i></i><i></i><i></i></div><small class='fine'>ゲーム内の仮想通貨のみ使用します。実際のお金・換金は一切ありません。</small></div>
+<div class='scr show' id='s-top'><div class='logo'><h1>JUGGLER ARCADE</h1><p>VIRTUAL HALL</p></div><div class='menu'><button class='mb' id='m-in'>入店する</button><button class='mb' id='m-re' hidden>遊技を再開する</button><button class='mb' id='m-ex' hidden></button><button class='mb' id='m-pr'>練習する</button><button class='mb' id='m-if'>詳細</button></div><div class='ms'><i></i><i></i><i></i><i></i><i></i><i></i></div><small class='fine'>ゲーム内の仮想通貨のみ使用します。実際のお金・換金は一切ありません。</small></div>
 <div class='scr' id='s-fund'><div class='pn2'><h2>資金設定</h2><p>持ち込む仮想資金(1,000円単位)</p><div class='chips' id='fc'></div><label>任意の金額(円)<input id='fi' type='number' min='1000' step='1000'></label><p>追加資金</p><div class='seg' id='fa'><button data-a='0'>追加なし</button><button data-a='1'>追加する</button></div><div id='fcw' hidden><p>追加できる上限(1,000円単位・遊技中に任意のタイミングで追加)</p><div class='chips' id='fcc'></div><label>任意の金額(円)<input id='fci' type='number' min='1000' step='1000'></label></div><p id='fs'></p><div class='act'><button id='f-back'>戻る</button><button id='f-go' class='pri'>台選択へ</button></div><p class='fine2'>ゲーム内の仮想通貨です。1,000円=50枚(1枚=20円)。実際のお金は一切使用しません。</p></div></div>
-<div class='scr' id='s-pick'><div class='pn2 wide'><h2 id='pk-t'>台選択</h2><div class='grid' id='pg'></div><div id='pd'></div><div id='pp2' class='pp2' hidden></div><div class='act'><button id='p-back'>戻る</button><button id='p-go' class='pri'>遊技開始</button></div></div></div>
-<div class='scr' id='s-res'><div class='pn2 wide'><h2>遊技結果</h2><div id='rb'></div><div class='act'><button id='r-again' class='pri'>もう一度遊ぶ</button><button id='r-top'>トップへ戻る</button></div></div></div>
+<div class='scr' id='s-pick'><div class='pn2 wide'><h2 id='pk-t'>台選択</h2><div class='grid' id='pg'></div><div id='pd'></div><div id='pp2' class='pp2' hidden></div><h3>目押し</h3><div class='seg' id='me'><button data-me='0'>目押しアシストあり</button><button data-me='1'>目押しモード</button></div><p class='fine2'>目押しモード:BIG・REGの7揃いの自動アシストがなくなり、実機のように最大4コマの引き込み内で狙った時だけ揃います。揃わなかってもボーナスは持ち越されます。ベルなどの小役はこれまで通り揃います。</p><div class='act'><button id='p-back'>戻る</button><button id='p-go' class='pri'>遊技開始</button></div></div></div>
+<div class='scr' id='s-res'><div class='pn2 wide'><h2>遊技結果</h2><div id='rb'></div><div id='rx' class='act'></div><div class='act'><button id='r-again' class='pri'>もう一度遊ぶ</button><button id='r-top'>トップへ戻る</button></div></div></div>
 <div class='scr' id='s-info'><div class='pn2 wide' id='ib'></div></div>
 <div id='door'><div class='in'><b>WELCOME</b></div><div class='dr l'><span>JUGGLER</span></div><div class='dr r'><span>ARCADE</span></div></div>
+<div id='sc'><div id='scb'></div><button id='sc-skip'>スキップ</button></div>
 <div class='dlg' id='dx'><div class='cd'><h2 id='dxt'>退店しますか？</h2><div class='act'><button id='dx-y' class='pri'>はい</button><button class='x'>いいえ</button></div></div></div>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -248,7 +277,7 @@ const N=24,STRIPS=['CbPRBCbPRSbPCRTbPBRCbPSR','bSCPRbBPRCbTPRSbCPRBbCPR','PCRbPB
 const ST=[[287,455,6],[282,431,5.95],[277,399,5.9],[270,331,5.8],[262,315,5.7],[254,255,5.6]];
 const NEED={BIG:'SSS',REG:'SSB',BELL:'bbb',REPLAY:'RRR',PIERROT:'PPP'},PAY={BELL:7,CHERRY:2,PIERROT:10};
 const SP=[700,350,140],SPN=['低速','標準','高速'],LB={BIG:'BIG',REG:'REG',BELL:'ベル',REPLAY:'リプ',CHERRY:'チェ',PIERROT:'ピエロ',NONE:'・'};
-const GK=['vol','mute','spd'],MK=['set','tg','ng','big','reg','cg','mx','df','hist','dh','fl','md','bg','bp'];
+const GK=['vol','mute','spd','me'],MK=['set','tg','ng','big','reg','cg','mx','df','hist','dh','fl','md','bg','bp'];
 const rnd=(a,b)=>(a+Math.random()*(b-a))|0;
 const PD=()=>({set:0,rs:1,ss:1,cr:50,bonus:'N',sb:0,sr:0,sbl:0,srp:0,sch:0});
 const defM=set=>({set,tg:0,ng:0,big:0,reg:0,cg:0,mx:0,df:0,hist:[],dh:[],fl:null,md:'N',bg:0,bp:0});
@@ -307,7 +336,7 @@ function pick(i,base,rng){const done=ts.every((x,j)=>j===i||x!==null),nd=NEED[ta
 const lok=t=>LN.some(o=>sy(t+o[i],i)===nd[i]&&ts.every((x,j)=>j===i||x===null||sy(x+o[j],j)===nd[j]));
 const score=c=>{const q=sc(c);if(q.w.some(x=>(x.r==='BIG'||x.r==='REG')&&x.r!==target))return 0;const n=!q.w.length,hit=nd?q.key.split(',').includes(target):target==='CHERRY'?q.ch:n,ex=nd?q.key===target&&!q.ch:target==='CHERRY'?n&&q.ch:n&&!q.ch;return ex?3:hit?2:1};
 let f;
-if(done){let b=-1;for(const K of [ks,Array.from({length:13},(_,k)=>k)]){K.forEach(k=>{const s=score(full(k));if(s>b){b=s;f=k}});if(b>=3)break}}
+if(done){let b=-1;for(const K of [ks,S.me&&(target==='BIG'||target==='REG')?ks:Array.from({length:13},(_,k)=>k)]){K.forEach(k=>{const s=score(full(k));if(s>b){b=s;f=k}});if(b>=3)break}}
 else if(nd)f=ks.find(k=>lok(base-k)&&!(i===0&&cv(base-k)))??ks.find(k=>lok(base-k));
 else if(i===0)f=ks.find(k=>cv(base-k)===(target==='CHERRY'));
 return f===undefined?0:f}
@@ -324,7 +353,7 @@ E.pend=!E.pr;st='SPIN';ts=[null,null,null];save();minT=performance.now()+260;las
 R.forEach(r=>{r.m=1;r.v=0;r.el.classList.add('spin')});$('.rl').classList.remove('win');$$('.ln line.on').forEach(l=>l.classList.remove('on'));
 sfx('start');spinOn();vib(20);ui()}
 function stop(i){const r=R[i];if(st!=='SPIN'||r.m!==1||performance.now()<minT)return;
-const base=Math.floor(r.d),rng=target==='BIG'||target==='REG'?12:4,b=base-pick(i,base,rng);
+const base=Math.floor(r.d),rng=(target==='BIG'||target==='REG')&&!S.me?12:4,b=base-pick(i,base,rng);
 ts[i]=b;r.m=2;r.tw={a:r.d,b,t0:performance.now(),du:Math.max(80/SS,2000*(r.d-b)/Math.max(r.v,8)/SS)};r.el.classList.remove('spin');sfx('stop');vib(12);if(sn)sn.g.gain.setTargetAtTime(.03*R.filter(x=>x.m===1).length+.0001,AC.currentTime,.08);ui()}
 function stopped(r){if(R.every(x=>x.m===0)){spinOff();settle()}}
 function settle(){const wasB=mode!=='N',q=sc(ts);let res='NONE',p=q.ch?2:0,rp=false;
@@ -346,7 +375,7 @@ $('#bb').disabled=!cb;$('#bm').disabled=!cb;$('#bs').disabled=!cs;$('#bs').class
 R.forEach((r,i)=>$('#s'+i).disabled=!(st==='SPIN'&&r.m===1&&m));
 $('#au').classList.toggle('on',auto);$('#au').textContent=auto?'停止':'オート';$('#sd').textContent=SPN[S.spd];$('#so').textContent=S.mute?'音OFF':'音ON';
 $('#cab').dataset.mode=mode;stat();
-$('#msg').textContent=st==='SPIN'?'停止ボタンで止めよう':st!=='IDLE'?'':auto?'オートプレイ中':mode!=='N'?'レバーでボーナスゲーム':bet===3?'レバーを引いて回転':E.cr+bet<3?need():'BETしてください';
+$('#msg').textContent=st==='SPIN'?'停止ボタンで止めよう':st!=='IDLE'?'':auto?'オートプレイ中':mode!=='N'?'レバーでボーナスゲーム':bet===3?(S.me&&flag?'GOGO!点灯中 で7を狙おう':'レバーを引いて回転'):E.cr+bet<3?need():'BETしてください';
 $('#gz').style.width=(mode==='BIG'?Math.max(bg/30,bp/310):mode==='REG'?bg/12:0)*100+'%';
 $('#bn').innerHTML=mode==='N'?`通常 <b>${S.cg}</b>G`:`${mode} BONUS <b>${bg}G</b> <b>+${bp}</b>`;
 $('#hs').innerHTML=rec.map(x=>`<span class="${x}">${LB[x]}</span>`).join('');
@@ -359,7 +388,7 @@ function renderData(){const{tg,ng,big,reg,cg,mx,df,hist}=S;
 $('#dt').innerHTML=[['総ゲーム数',tg],['BIG回数',big],['REG回数',reg],['現在のゲーム数',cg],['BIG確率',pr(ng,big)],['REG確率',pr(ng,reg)],['合成確率',pr(ng,big+reg)],['最大獲得枚数',mx],['差枚数',(df>0?'+':'')+df]].map(([a,b])=>`<div><span>${a}</span><b>${b}</b></div>`).join('')+'<h3>ボーナス履歴</h3>'+(hist.length?hist.map((h,i)=>`<p><i class="${h.t}">${h.t}</i>${h.g}G<b>${i===0&&mode!=='N'?'+'+bp+'…':'+'+h.p}</b></p>`).join(''):'<p>履歴なし</p>')+graph()}
 function renderSet(){$('#sb').innerHTML=ST.map((_,i)=>`<button data-s="${i}" class="${i===S.set?'on':''}">${i+1}</button>`).join('');
 const[a,b,c]=ST[S.set];
-$('#si').innerHTML=[['設定',S.set+1],['BIG確率','1/'+a],['REG確率','1/'+b],['合成確率','1/'+(1/(1/a+1/b)).toFixed(1)],['ベル確率','1/'+c]].map(([x,y])=>`<div><span>${x}</span><b>${y}</b></div>`).join('');$('#vl').value=S.vol}
+$('#si').innerHTML=[['設定',S.set+1],['BIG確率','1/'+a],['REG確率','1/'+b],['合成確率','1/'+(1/(1/a+1/b)).toFixed(1)],['ベル確率','1/'+c]].map(([x,y])=>`<div><span>${x}</span><b>${y}</b></div>`).join('');$('#vl').value=S.vol;$('#me2').textContent=S.me?'目押しモード: ON(7を自分で狙う)':'目押しアシスト: ON(7は自動で揃う)'}
 async function autoLoop(){if(autoRun)return;autoRun=true;
 while(auto){if(st!=='IDLE'){await sl(80);continue}
 if(mode==='N'&&bet<3){if(E.cr<3-bet&&E.tray>0)insMed(Math.min(E.tray,50));bet1(true)}
@@ -407,7 +436,10 @@ function renderPP(){const cur=k=>k==='aspd'?DB.G.spd:P[k];$('#pp2').innerHTML='<
 function renderPick(){const m=DB.M[selM];$('#pk-t').textContent=prac?'練習モード:台選択':'台選択';
 $('#pg').innerHTML=DB.M.map((m,i)=>`<button class='cd2${i===selM?' on':''}' data-i='${i}'><b>${i+1}号機</b><em>${NAMES[i]}</em><span>設定 ${m.set+1}</span><span class='st'>${stt(i)}</span><span>BIG ${m.big} / REG ${m.reg}</span><span>総G ${m.tg}</span><small>${feat(i)}</small></button>`).join('');
 $('#pd').innerHTML=`<h3>${selM+1}号機 ${NAMES[selM]} の詳細</h3><div class='tb'>${[['設定',m.set+1],['稼働状態',stt(selM)],['総ゲーム数',m.tg],['現在のゲーム数',m.cg],['BIG / REG',`${m.big} / ${m.reg}`],['BIG確率',pr(m.ng,m.big)],['REG確率',pr(m.ng,m.reg)],['合成確率',pr(m.ng,m.big+m.reg)],['最大獲得枚数',m.mx],['差枚数',m.df]].map(([a,b])=>`<div><span>${a}</span><b>${b}</b></div>`).join('')}</div>`;
-$('#pp2').hidden=!prac;if(prac)renderPP();$('#p-go').textContent=prac?'練習開始':'遊技開始'}
+$('#pp2').hidden=!prac;if(prac)renderPP();$('#p-go').textContent=prac?'練習開始':'遊技開始';renderMe()}
+function renderMe(){$$('#me button').forEach(b=>b.classList.toggle('on',(b.dataset.me==='1')===!!DB.G.me))}
+$('#me').onclick=e=>{const v=e.target.dataset.me;if(v===undefined)return;DB.G.me=S.me=v==='1';persist();renderMe()};
+$('#me2').onclick=()=>{S.me=!S.me;DB.G.me=S.me;save();renderSet();ui()};
 function loadSt(){if(E.pend){E.bet=0;E.fr=false;E.pend=false}mode=S.md;flag=S.fl;bg=S.bg;bp=S.bp;bet=E.bet||0;st='IDLE';auto=false}
 function begin(){loadSt();rec.length=0;lastPay=0;dc=E.cr;$('#cr').textContent=dc;document.body.dataset.m=E.pr?'prac':'hall';$('#ex').textContent=E.pr?'練習終了':'退店';if(E.pr&&P.bonus!=='N')flag=P.bonus;lamp(mode!=='N'?'on bk':flag?'on':'');clearInterval(bgm);if(mode!=='N')bgmStart();$('.rl').classList.remove('win');$$('.ln line.on').forEach(l=>l.classList.remove('on'));ppK='';go('game');ui();toast(E.pr?'練習モード:資金は消費されません':'紙幣を投入してメダルを受け取りましょう')}
 function startHall(){E=newE(selM,fund.init,fund.add?fund.cap:0,false);E.act=true;S={...DB.G,...DB.M[selM]};begin();save()}
@@ -433,7 +465,7 @@ function chk(){if(E.pr||!E.act||st!=='IDLE'||!dead())return;setAuto(false);toast
 function leave(why){setAuto(false);ppK='';spinOff();clearInterval(bgm);if(E.pr){RS=SS=1;E=newE(0,0,0,true);S={...DB.G,...defM(0)};go('top');return}cancelBet();finish(why)}
 function finish(why){save();const t1=Date.now(),ng=E.g-E.bgm.BIG-E.bgm.REG,r={m:E.m,set:S.set,t0:E.t0,t1,g:E.g,ng,init:E.init,added:E.added,cash:E.cash,tray:E.tray,cr:E.cr,tb:E.tb,tp:E.tp,big:E.big,reg:E.reg,bgm:{...E.bgm},rc:{...E.rc},mx:E.mx,mp:E.mp,net:net(),why};DB.H.unshift(r);DB.H.length=Math.min(DB.H.length,60);E.act=false;DB.sess=null;persist();renderRes(r);go('res')}
 function renderRes(r){const pc=(n,g)=>g?(n/g*100).toFixed(2)+'%':'--',tm=Math.round((r.t1-r.t0)/1000),dt=x=>new Date(x).toLocaleString('ja-JP'),row=([a,b,k])=>`<div><span>${a}</span><b class='${k||''}'>${b}</b></div>`,sec=(t,rs)=>`<h3>${t}</h3><div class='tb'>${rs.map(row).join('')}</div>`,val=(r.tray+r.cr)*20,rr=(n,k)=>[n,`${r.rc[k]}回 / ${pr(r.g,r.rc[k])} / ${pc(r.rc[k],r.g)}`];
-$('#rb').innerHTML=(r.why==='dead'?`<p>資金・メダル・クレジットがなくなったため遊技を終了しました。</p>`:'')+sec('基本情報',[['遊技した台',`${r.m+1}号機 ${NAMES[r.m]}(設定${r.set+1})`],['遊技開始時刻',dt(r.t0)],['遊技終了時刻',dt(r.t1)],['遊技時間',`${tm/3600|0}時間${tm%3600/60|0}分${tm%60}秒`],['総ゲーム数',r.g],['初期持ち込み資金',yen(r.init)],['追加資金合計',yen(r.added)],['最終残金',yen(r.cash)],['最終メダル枚数',r.tray+'枚'],['最終クレジット',r.cr+'枚'],['総BET枚数',r.tb+'枚'],['総払い出し枚数',r.tp+'枚'],['最終収支',sg(r.net),cl(r.net)]])+sec('ボーナス統計',[['BIG回数',r.big],['REG回数',r.reg],['BIG確率',pr(r.ng,r.big)],['REG確率',pr(r.ng,r.reg)],['合成確率',pr(r.ng,r.big+r.reg)],['BIG中のゲーム数',r.bgm.BIG+'G'],['REG中のゲーム数',r.bgm.REG+'G']])+sec('小役統計(回数 / 確率 / 総ゲーム数に対する割合)',[rr('ベル','BELL'),rr('リプレイ','REPLAY'),rr('チェリー','CHERRY'),rr('ピエロ(ボーナス中含む)','PIERROT'),rr('その他(ハズレ)','NONE')])+sec('収支分析',[['初期資金',yen(r.init)],['追加資金',yen(r.added)],['総投入資金',yen(r.init+r.added)],['総払い出し',`${r.tp}枚(${yen(r.tp*20)}相当)`],['最終所持金',yen(r.cash)],['メダル評価額(20円/枚・換金不可)',yen(val)],['収支',sg(r.net),cl(r.net)],['1ゲーム平均収支',r.g?sg(Math.round(r.net/r.g)):'--',cl(r.net)],['最高獲得枚数(ボーナス1回)',r.mx+'枚'],['最大払い出し(1ゲーム)',r.mp+'枚']])}
+$('#rb').innerHTML=(r.why==='dead'?`<p>資金・メダル・クレジットがなくなったため遊技を終了しました。</p>`:'')+sec('基本情報',[['遊技した台',`${r.m+1}号機 ${NAMES[r.m]}(設定${r.set+1})`],['遊技開始時刻',dt(r.t0)],['遊技終了時刻',dt(r.t1)],['遊技時間',`${tm/3600|0}時間${tm%3600/60|0}分${tm%60}秒`],['総ゲーム数',r.g],['初期持ち込み資金',yen(r.init)],['追加資金合計',yen(r.added)],['最終残金',yen(r.cash)],['最終メダル枚数',r.tray+'枚'],['最終クレジット',r.cr+'枚'],['総BET枚数',r.tb+'枚'],['総払い出し枚数',r.tp+'枚'],['最終収支',sg(r.net),cl(r.net)]])+sec('ボーナス統計',[['BIG回数',r.big],['REG回数',r.reg],['BIG確率',pr(r.ng,r.big)],['REG確率',pr(r.ng,r.reg)],['合成確率',pr(r.ng,r.big+r.reg)],['BIG中のゲーム数',r.bgm.BIG+'G'],['REG中のゲーム数',r.bgm.REG+'G']])+sec('小役統計(回数 / 確率 / 総ゲーム数に対する割合)',[rr('ベル','BELL'),rr('リプレイ','REPLAY'),rr('チェリー','CHERRY'),rr('ピエロ(ボーナス中含む)','PIERROT'),rr('その他(ハズレ)','NONE')])+sec('収支分析',[['初期資金',yen(r.init)],['追加資金',yen(r.added)],['総投入資金',yen(r.init+r.added)],['総払い出し',`${r.tp}枚(${yen(r.tp*20)}相当)`],['最終所持金',yen(r.cash)],['メダル評価額(20円/枚・換金不可)',yen(val)],['収支',sg(r.net),cl(r.net)],['1ゲーム平均収支',r.g?sg(Math.round(r.net/r.g)):'--',cl(r.net)],['最高獲得枚数(ボーナス1回)',r.mx+'枚'],['最大払い出し(1ゲーム)',r.mp+'枚']])+ext(r);rx(r)}
 const HELP=`<h3>遊び方</h3><p>「入店する」で資金を決め、1〜6号機から台を選んで遊技します。①紙幣投入口から紙幣を入れてメダルを受け取る ②メダルを投入口へ入れてクレジットにする ③BETを押す(1ゲーム3枚) ④レバーを引く ⑤左・中・右のSTOPボタンで止める、の順に進めます。</p><h3>仮想通貨システム</h3><p>すべてゲーム内のお金です。1,000円=50枚(1枚=20円)。換金はできません。紙幣は所持金から投入され、追加資金は入店時に決めた上限まで遊技中に追加できます。</p><h3>クレジットの仕組み</h3><p>クレジットは投入口へ入れたメダルだけで増え、BETで減ります。払い出しはメダルとして受け皿に出るため、続けて遊ぶには再度メダルを投入口へ入れてください。リプレイは追加BETが不要です。</p><h3>操作</h3><p>BET:A / MAX BET:S / レバー:Space(タップ) / STOP:Z・X・C。スマホは画面のボタンをタップします。</p><h3>役</h3><p>ベル:7枚 / チェリー(左リール):2枚 / ピエロ:10枚 / リプレイ:再遊技。BIG・REGは内部抽選でGOGO!ランプが点灯したら7を狙うとボーナス開始です。BIGは最大30G、REGは12G。ボーナス中はBET不要です。</p><h3>練習モード</h3><p>資金を消費せず、設定・確率・回転速度・ボーナス状態などを自由に変えて試せます。入店モードには影響しません。</p><h3>収支・統計の見方</h3><p>収支=所持金+(メダル+クレジット)×20円−(持込+追加)で計算します。メダル評価額は参考値です。確率は通常時ゲーム数÷回数で表示します。</p>`;
 function renderInfo(){const H=DB.H,tot=H.reduce((a,r)=>a+r.net,0),pm=NAMES.map((_,i)=>{const h=H.filter(r=>r.m===i),s=h.reduce((a,r)=>a+r.net,0);return`<div><span>${i+1}号機 (${h.length}回)</span><b class='${cl(s)}'>${sg(s)}</b></div>`}).join('');
 $('#ib').innerHTML=`<h2>詳細</h2>${HELP}<h3>過去の収支</h3><div class='tb'><div><span>累計収支(${H.length}回)</span><b class='${cl(tot)}'>${sg(tot)}</b></div>${pm}</div><h3>遊技履歴(直近10回)</h3><div class='tb'>${H.slice(0,10).map(r=>`<div><span>${new Date(r.t0).toLocaleString('ja-JP')} ${r.m+1}号機 ${r.g}G</span><b class='${cl(r.net)}'>${sg(r.net)}</b></div>`).join('')||'<div><span>履歴なし</span></div>'}</div><div class='act'><button id='i-rs'>統計をリセット</button><button id='i-back' class='pri'>戻る</button></div><div id='i-rc' hidden><p>遊技履歴と各台のデータを消去します。よろしいですか？</p><div class='act'><button id='i-y' class='pri'>消去する</button><button id='i-n'>やめる</button></div></div>`}
@@ -446,7 +478,7 @@ $('#fci').onchange=e=>{fund.cap=n1k(e.target.value,1000);renderFund()};
 $('#fa').onclick=e=>{const a=e.target.dataset.a;if(a!==undefined){fund.add=a==='1';renderFund()}};
 $('#pg').onclick=e=>{const b=e.target.closest('[data-i]');if(b){selM=+b.dataset.i;if(prac){P.set=DB.M[selM].set;persist()}renderPick()}};
 $('#pp2').onchange=e=>{const k=e.target.dataset.k;if(!k)return;const v=e.target.value;if(k==='aspd')DB.G.spd=S.spd=+v;else if(k==='bonus')P.bonus=v;else P[k]=e.target.tagName==='SELECT'?+v:Math.max(0,+v||0);persist()};
-$('#m-in').onclick=()=>{prac=false;enter()};
+$('#m-in').onclick=()=>{if(pendEx())return toast('メダル/景品が残っています。先に交換・換金を済ませてください');prac=false;enter()};
 $('#m-pr').onclick=()=>{prac=true;renderPick();go('pick')};
 $('#m-re').onclick=resume;
 $('#m-if').onclick=()=>{renderInfo();go('info')};
@@ -454,8 +486,8 @@ $('#f-back').onclick=()=>go('top');
 $('#f-go').onclick=()=>{fund.init=n1k($('#fi').value,1000);fund.cap=n1k($('#fci').value,1000);renderPick();go('pick')};
 $('#p-back').onclick=()=>{if(prac)go('top');else{renderFund();go('fund')}};
 $('#p-go').onclick=()=>prac?startPrac():startHall();
-$('#r-again').onclick=()=>{prac=false;renderFund();go('fund')};
-$('#r-top').onclick=()=>{$('#m-re').hidden=!DB.sess;go('top')};
+$('#r-again').onclick=()=>{if(pendEx())return toast('メダル/景品が残っています。先に交換・換金を済ませてください');prac=false;renderFund();go('fund')};
+$('#r-top').onclick=()=>{topBtns();go('top')};
 $('#ex').onclick=()=>{if(st!=='IDLE')return;$('#dxt').textContent=E.pr?'練習を終了しますか？':'退店しますか？';$('#dx').classList.add('show')};
 $('#dx-y').onclick=()=>{closeAll();leave()};
 $('#cb').onclick=()=>{if(E.pr)return toast('練習モードでは紙幣は不要です');ppK=ppK==='b'?'':'b';ppRender()};
@@ -463,8 +495,40 @@ $('#cm').onclick=()=>{ppK=ppK==='m'?'':'m';ppRender()};
 $('#pp').onclick=e=>{const d=e.target.dataset;if(d.b)bill(+d.b);else if(d.f)addFund(+d.f);else if(d.m)insMed(+d.m)};
 $('#pf1').onclick=()=>fb('BIG');$('#pf2').onclick=()=>fb('REG');$('#pf0').onclick=()=>fb(null);
 $('#ib').onclick=e=>{const id=e.target.id;if(id==='i-back'){go('top')}else if(id==='i-rs')$('#i-rc').hidden=false;else if(id==='i-n')$('#i-rc').hidden=true;else if(id==='i-y'){if(DB.sess)toast('遊技中の台があるため、先に再開して退店してください');else{DB.H=[];DB.M=mkDB().M;persist();renderInfo();toast('統計をリセットしました')}}};
+const tbl=(t,rs)=>`<h3>${t}</h3><div class='tb'>${rs.map(([a,b,k])=>`<div><span>${a}</span><b class='${k||''}'>${b}</b></div>`).join('')}</div>`;
+const pendEx=()=>{const h=DB.H[0];return h&&h.ex!==2&&(h.ex===1||h.tray+h.cr>0)?h:null};
+function topBtns(){const h=pendEx();$('#m-re').hidden=!DB.sess;$('#m-ex').hidden=!h;if(h)$('#m-ex').textContent=h.ex===1?'換金所へ行く':'景品に交換する'}
+function ext(r){if(r.ex===1)return`<p>景品 ${r.pz}個(${yen(r.pz*20)}相当)を持っています。換金所で現金に交換してください。</p>`;
+if(r.ex!==2)return r.tray+r.cr>0?`<p>メダル・クレジットが合計 ${r.tray+r.cr}枚 残っています。景品に交換し、換金所で現金化できます。</p>`:'';
+const tin=r.init+r.added,pl=r.fcash-tin;return tbl('最終的な支出の詳細',[['初期持ち込み資金',yen(r.init)],['追加資金',yen(r.added)],['総投入資金',yen(tin)],['紙幣投入額(メダル購入に使用)',yen(tin-r.cash)],['紙幣にしなかった残金',yen(r.cash)],['総BET枚数',r.tb+'枚'],['総払い出し枚数',r.tp+'枚'],['払い出し率(払出÷BET)',r.tb?(r.tp/r.tb*100).toFixed(1)+'%':'--'],['景品に交換したメダル',(r.pz||0)+'枚'],['換金額(景品→現金)',yen(r.cashed)],['最終手持ち現金(残金+換金額)',yen(r.fcash)],['最終損益',sg(pl),cl(pl)],['実質支出額',yen(Math.max(0,-pl))],['1ゲーム平均損益',r.g?sg(Math.round(pl/r.g)):'--',cl(pl)]])}
+function rx(r){const m=r.tray+r.cr;$('#rx').innerHTML=r.ex===2?'':r.ex===1?`<button id='x-ca' class='pri'>換金所へ行く(景品 ${r.pz}個)</button>`:m>0?`<button id='x-pz' class='pri'>景品に交換する(${m}枚)</button>`:`<button id='x-fin'>支出の詳細を見る</button>`}
+let scTok=0,scDone=null;
+const sq=(ms,f)=>{const k=scTok;setTimeout(()=>{if(k===scTok)f()},ms)};
+function scEnd(){scTok++;$('#sc').className='';const f=scDone;scDone=null;if(f)f()}
+function prizeScene(r){const n=r.tray+r.cr;scDone=()=>{r.ex=1;r.pz=n;persist();renderRes(r);toast(`景品 ${n}個を受け取りました`)};
+$('#sc').className='show prz';$('#scb').innerHTML=`<div class='sbg'></div><div class='sg'>景品交換所</div><div class='bk'><div class='win'><div class='stf'><i class='hat'></i><i class='hd'></i><i class='bd'></i></div></div><div class='ctr'><div class='cm'><small>計数枚数</small><b id='cn'>0</b></div><div class='trz' id='trz'></div></div></div><p class='tx' id='sct'>メダルを計数しています…</p>`;
+const ct=$('.ctr'),stp=Math.max(1,Math.ceil(n/40)),tk=scTok;let c=0;
+(function cnt(){if(tk!==scTok)return;c=Math.min(n,c+stp);$('#cn').textContent=c;if(c%3===0)sfx('coin');if(c<n)setTimeout(cnt,45)})();
+for(let i=0;i<Math.min(n,12);i++)ct.appendChild(mkS('dp',`left:${12+Math.random()*28}%;--dl:${i*110}ms;--y:30px`));
+const t1=Math.min(2000,Math.ceil(n/stp)*45)+500;
+sq(t1,()=>{$('#sct').textContent='景品を用意しています…';sfx('chime');const z=$('#trz');for(let i=0;i<Math.min(n,10);i++){const e=document.createElement('i');e.className='pz';e.textContent='景';e.style.cssText=`left:${6+i*9}%;top:${10+(i%2)*18}px;--dl:${i*90}ms;--sx:${Math.random()*80-40}px`;z.appendChild(e)}});
+sq(t1+1400,()=>{$('#sct').textContent=`景品 ${n}個(${yen(n*20)}相当)を受け取りました`;sfx('pay',10)});
+sq(t1+3000,scEnd)}
+function cashScene(r){const n=r.pz,y=n*20;scDone=()=>{r.ex=2;r.cashed=y;r.fcash=r.cash+y;persist();renderRes(r);topBtns();$('#s-res').scrollTop=1e6};
+$('#sc').className='show csh';$('#scb').innerHTML=`<div class='sbg'></div><div class='sg'>換金所</div><div class='bk2'><div class='shw'><div class='sht' id='sht'></div></div><div class='shf' id='shf'></div></div><p class='tx' id='sct'></p><div class='walk'><b>景品を持って換金所へ向かいます…</b></div>`;
+const f=$('#shf');
+sq(1800,()=>{$('#sht').classList.add('up');sfx('door');$('#sct').textContent='窓口に景品を渡します'});
+sq(2900,()=>{sfx('chime');for(let i=0;i<Math.min(n,8);i++){const e=document.createElement('i');e.className='pz';e.textContent='景';e.style.cssText=`--lx:${8+i*10}%;--dl:${i*90}ms`;f.appendChild(e)}});
+sq(4100,()=>{$('#sct').textContent='換金中…';sfx('bill')});
+sq(5000,()=>{const D=[10000,5000,1000,500,100,50,10];let rest=y,it=[];D.forEach(d=>{const k=rest/d|0;rest-=k*d;for(let i=0;i<Math.min(k,3);i++)it.push(d)});it=it.slice(0,9);
+it.forEach((d,i)=>{const e=document.createElement('div');e.className=d>=1000?'bl bo b'+d:'co';e.textContent=d>=1000?yen(d):d;e.style.cssText=`--lx:${4+i*10}%;--ty:${10+(i%2)*40}px;--dl:${i*110}ms;--r:${Math.random()*20-10}deg`;f.appendChild(e)});
+$('#sct').textContent=`${yen(y)} を受け取りました`;sfx('pay',10)});
+sq(7200,scEnd)}
+$('#sc-skip').onclick=scEnd;
+$('#rx').onclick=e=>{const id=e.target.id,r=DB.H[0];if(!r)return;if(id==='x-pz')prizeScene(r);else if(id==='x-ca')cashScene(r);else if(id==='x-fin'){r.ex=2;r.pz=0;r.cashed=0;r.fcash=r.cash;persist();renderRes(r);topBtns()}};
+$('#m-ex').onclick=()=>{const h=pendEx();if(!h)return;renderRes(h);go('res');if(h.ex===1)cashScene(h);else prizeScene(h)};
 addEventListener('pointerdown',()=>ac(),true);
 document.addEventListener('pointerdown',e=>{if(e.target.closest('.scr button,.pp button'))sfx('click')});
-$('#m-re').hidden=!DB.sess;lamp('');ui();requestAnimationFrame(frame);
+topBtns();lamp('');ui();requestAnimationFrame(frame);
 if(mode!=='N')bgmStart();addEventListener('contextmenu',e=>e.preventDefault());$$('.nv button').forEach(b=>b.addEventListener('pointerdown',()=>{ac();sfx('click')}));
 </script></body></html>
