@@ -228,6 +228,21 @@ body[data-m=hall] :is(#ad,#rs,#rc,#sb,#si){display:none}body[data-m=prac] #cb{op
 @keyframes bout{from{transform:translateY(-170px) scale(.6);opacity:0}30%{opacity:1}to{transform:translateY(0) rotate(var(--r));opacity:1}}
 .walk{position:absolute;inset:0;background:#000;display:grid;place-items:center;z-index:4;animation:wk 1.7s forwards}.walk b{color:#cfc8dc;font:600 15px system-ui,sans-serif;padding:0 20px;text-align:center}
 @keyframes wk{0%,70%{opacity:1}100%{opacity:0;visibility:hidden}}
+#s-pin{padding-top:calc(10px + env(safe-area-inset-top,0px))}
+.pnw{width:min(100%,460px);margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.pnh{display:grid;grid-template-columns:1.4fr .8fr .7fr .8fr .8fr;gap:4px}.pnh .ch:first-child{grid-column:auto}
+.pnb{display:flex;gap:6px;align-items:center}.pnb button,.pnb input{flex:1;min-height:34px!important;font-size:12px!important;padding:0 6px!important}
+.pnc{position:relative;align-self:center}
+#pn-cv{display:block;border-radius:14px;border:2px solid #d9b25c;box-shadow:0 0 30px #2a8cff55,0 0 0 4px #000;touch-action:none;background:#05060f}
+.pnov{position:absolute;inset:0;border-radius:14px;background:#000c;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;text-align:center;color:#fff;overflow:auto}
+.pnov[hidden]{display:none}.pnov h2{margin:0;font:400 26px 'Dela Gothic One',system-ui;color:#fff1b8;text-shadow:0 0 14px #2a8cff}.pnov p{margin:0;font-size:13px;color:#cfc8dc}.pnov .big{font:800 34px Orbitron,system-ui;color:#ffb02e;text-shadow:0 0 12px #f80}
+.pnov .tb{width:100%}.pnov .tb div{padding:3px 8px;font-size:12px}
+.pnk{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:10px}
+.scr .pnk button{height:70px;border-radius:35px;font:700 18px system-ui,sans-serif;touch-action:none;box-shadow:0 5px 0 #000a;border-width:2px}
+.scr .pnk button.p,.scr .pnk button:active{transform:translateY(4px);box-shadow:0 1px 0 #000a;background:#7a5a10}
+.scr .pnk #pn-s{background:linear-gradient(#e0243a,#8a1426);border-color:#ff8a8a}
+.pnm{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;font-size:13px}.pnm b{color:#ffb02e;font-family:Orbitron,system-ui}.pnm button{min-height:34px!important;font-size:12px!important;padding:0 8px!important}
+.scr .cd2.off{opacity:.45}
 @media(prefers-reduced-motion:reduce){.lamp.on,.lamp.rb,#bs.rdy,.sp::after,.pn::before,#cab.shake,.logo h1,.ms i,.sg,.stf{animation:none}}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><defs>
@@ -265,12 +280,14 @@ body[data-m=hall] :is(#ad,#rs,#rc,#sb,#si){display:none}body[data-m=prac] #cb{op
 <div id="fl"></div><div id="bnr"></div><div id="ts"></div>
 <div class='scr show' id='s-top'><div class='logo'><h1>JUGGLER ARCADE</h1><p>VIRTUAL HALL</p></div><div class='menu'><button class='mb' id='m-in'>入店する</button><button class='mb' id='m-re' hidden>遊技を再開する</button><button class='mb' id='m-ex' hidden></button><button class='mb' id='m-pr'>練習する</button><button class='mb' id='m-if'>詳細</button></div><div class='ms'><i></i><i></i><i></i><i></i><i></i><i></i></div><small class='fine'>ゲーム内の仮想通貨のみ使用します。実際のお金・換金は一切ありません。</small></div>
 <div class='scr' id='s-fund'><div class='pn2'><h2>資金設定</h2><p>持ち込む仮想資金(1,000円単位)</p><div class='chips' id='fc'></div><label>任意の金額(円)<input id='fi' type='number' min='1000' step='1000'></label><p>追加資金</p><div class='seg' id='fa'><button data-a='0'>追加なし</button><button data-a='1'>追加する</button></div><div id='fcw' hidden><p>追加できる上限(1,000円単位・遊技中に任意のタイミングで追加)</p><div class='chips' id='fcc'></div><label>任意の金額(円)<input id='fci' type='number' min='1000' step='1000'></label></div><p id='fs'></p><div class='act'><button id='f-back'>戻る</button><button id='f-go' class='pri'>台選択へ</button></div><p class='fine2'>ゲーム内の仮想通貨です。1,000円=50枚(1枚=20円)。実際のお金は一切使用しません。</p></div></div>
-<div class='scr' id='s-pick'><div class='pn2 wide'><h2 id='pk-t'>台選択</h2><div class='grid' id='pg'></div><div id='pd'></div><div id='pp2' class='pp2' hidden></div><h3>目押し</h3><div class='seg' id='me'><button data-me='0'>目押しアシストあり</button><button data-me='1'>目押しモード</button></div><p class='fine2'>目押しモード:BIG・REGの7揃いの自動アシストがなくなり、実機のように最大4コマの引き込み内で狙った時だけ揃います。揃わなかってもボーナスは持ち越されます。ベルなどの小役はこれまで通り揃います。</p><div class='act'><button id='p-back'>戻る</button><button id='p-go' class='pri'>遊技開始</button></div></div></div>
+<div class='scr' id='s-pick'><div class='pn2 wide'><h2 id='pk-t'>台選択</h2><p id='pk-s'></p><div class='grid' id='pg'></div><div id='pd'></div><div id='pp2' class='pp2' hidden></div><h3>目押し</h3><div class='seg' id='me'><button data-me='0'>目押しアシストあり</button><button data-me='1'>目押しモード</button></div><p class='fine2'>目押しモード:BIG・REGの7揃いの自動アシストがなくなり、実機のように最大4コマの引き込み内で狙った時だけ揃います。揃わなかってもボーナスは持ち越されます。ベルなどの小役はこれまで通り揃います。</p><div class='act'><button id='p-back'>戻る</button><button id='p-oth'>その他</button><button id='p-go' class='pri'>遊技開始</button></div></div></div>
 <div class='scr' id='s-res'><div class='pn2 wide'><h2>遊技結果</h2><div id='rb'></div><div id='rx' class='act'></div><div class='act'><button id='r-again' class='pri'>もう一度遊ぶ</button><button id='r-top'>トップへ戻る</button></div></div></div>
 <div class='scr' id='s-info'><div class='pn2 wide' id='ib'></div></div>
+<div class='scr' id='s-oth'><div class='pn2 wide'><h2>その他の遊技</h2><p>ジャグラー以外の遊技ジャンルを選べます。メダル残高はジャグラーと共有されます。</p><div class='grid' id='og'></div><div class='act'><button id='o-back'>戻る</button></div></div></div>
+<div class='scr' id='s-pin'><div class='pnw'><div class='pnh'><div class='ch'><small>スコア</small><b id='pn-sc'>0</b></div><div class='ch'><small>残り球</small><b id='pn-b'>-</b></div><div class='ch'><small>倍率</small><b id='pn-m'>x1</b></div><div class='ch'><small>消費(入店中)</small><b id='pn-sp'>0</b></div><div class='ch'><small>獲得(入店中)</small><b id='pn-wn'>0</b></div></div><div class='pnb'><button id='pn-mv2'>台を移動</button><button id='pn-ex'>退店</button><button id='pn-gu' hidden>ギブアップ</button><button id='pn-so'>音ON</button><input id='pn-v' type='range' min='0' max='1' step='.05'></div><div class='pnc'><canvas id='pn-cv' width='400' height='700'></canvas><div id='pn-ov' class='pnov'></div></div><div class='pnk'><button id='pn-l'>左 A</button><button id='pn-s'>発射</button><button id='pn-r'>右 D</button></div><div class='pnm' id='pn-mb'></div></div></div>
 <div id='door'><div class='in'><b>WELCOME</b></div><div class='dr l'><span>JUGGLER</span></div><div class='dr r'><span>ARCADE</span></div></div>
 <div id='sc'><div id='scb'></div><button id='sc-skip'>スキップ</button></div>
-<div class='dlg' id='dx'><div class='cd'><h2 id='dxt'>退店しますか？</h2><div class='act'><button id='dx-y' class='pri'>はい</button><button class='x'>いいえ</button></div></div></div>
+<div class='dlg' id='dx'><div class='cd'><h2 id='dxt'>退店しますか？</h2><div class='act'><button id='dx-y' class='pri'>はい</button><button id='dx-m'>台を移動する</button><button class='x'>いいえ</button></div></div></div>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const N=24,STRIPS=['CbPRBCbPRSbPCRTbPBRCbPSR','bSCPRbBPRCbTPRSbCPRBbCPR','PCRbPBRbCPSRbCPTRbBPCRbS'];
@@ -281,14 +298,14 @@ const GK=['vol','mute','spd','me'],MK=['set','tg','ng','big','reg','cg','mx','df
 const rnd=(a,b)=>(a+Math.random()*(b-a))|0;
 const PD=()=>({set:0,rs:1,ss:1,cr:50,bonus:'N',sb:0,sr:0,sbl:0,srp:0,sch:0});
 const defM=set=>({set,tg:0,ng:0,big:0,reg:0,cg:0,mx:0,df:0,hist:[],dh:[],fl:null,md:'N',bg:0,bp:0});
-function newE(m,init,cap,pr){return{m,init,cap,pr,act:false,added:0,cash:init,tray:0,cr:0,tb:0,tp:0,mb:0,mi:0,t0:Date.now(),g:0,big:0,reg:0,bgm:{BIG:0,REG:0},rc:{BELL:0,REPLAY:0,CHERRY:0,PIERROT:0,NONE:0,BIG:0,REG:0},mx:0,mp:0,bet:0,fr:false,pend:false}}
-function mkDB(){const o=[0,1,2,3,4,5].sort(()=>Math.random()-.5);return{G:{vol:.6,mute:false,spd:1},P:PD(),H:[],sess:null,M:o.map(s=>{const m=defM(s),g=rnd(700,3600),[a,b]=ST[s];m.tg=m.ng=g;m.big=Math.round(g/a*(.7+Math.random()*.6));m.reg=Math.round(g/b*(.7+Math.random()*.6));m.cg=rnd(0,450);m.mx=rnd(180,1100);m.df=rnd(-1200,900);for(let i=0;i<Math.min(5,m.big+m.reg);i++)m.hist.push({t:Math.random()<.55?'BIG':'REG',g:rnd(40,700),p:Math.random()<.5?rnd(180,320):rnd(60,120)});return m})}}
+function newE(m,init,cap,pr){return{m,init,cap,pr,act:false,pin:{n:0,sc:0,best:0,sp:0,wn:0},pbp:false,gn:'',ps:0,pg:0,added:0,cash:init,tray:0,cr:0,tb:0,tp:0,mb:0,mi:0,t0:Date.now(),g:0,big:0,reg:0,bgm:{BIG:0,REG:0},rc:{BELL:0,REPLAY:0,CHERRY:0,PIERROT:0,NONE:0,BIG:0,REG:0},mx:0,mp:0,bet:0,fr:false,pend:false}}
+function mkDB(){const o=[0,1,2,3,4,5].sort(()=>Math.random()-.5);return{G:{vol:.6,mute:false,spd:1},P:PD(),H:[],sess:null,PB:{hi:0,n:0,sc:0,sp:0,wn:0,last:[]},M:o.map(s=>{const m=defM(s),g=rnd(700,3600),[a,b]=ST[s];m.tg=m.ng=g;m.big=Math.round(g/a*(.7+Math.random()*.6));m.reg=Math.round(g/b*(.7+Math.random()*.6));m.cg=rnd(0,450);m.mx=rnd(180,1100);m.df=rnd(-1200,900);for(let i=0;i<Math.min(5,m.big+m.reg);i++)m.hist.push({t:Math.random()<.55?'BIG':'REG',g:rnd(40,700),p:Math.random()<.5?rnd(180,320):rnd(60,120)});return m})}}
 let DB=(()=>{try{const d=JSON.parse(localStorage.getItem('ujs2'));if(d&&d.M&&d.M.length===6)return{...mkDB(),...d}}catch(e){}return mkDB()})();
 let S={...DB.G,...defM(0)},E=newE(0,0,0,true);
 let st='IDLE',mode='N',flag=null,bet=0,bg=0,bp=0,RS=1,SS=1,target='NONE',ts=[null,null,null],minT=0,auto=false,autoRun=false,tick=0,dc=0,lc=0,lastPay=0,H=100,lt=performance.now(),AC,mg;
 const rec=[];
 const persist=()=>{try{localStorage.setItem('ujs2',JSON.stringify(DB))}catch(e){}};
-const save=()=>{GK.forEach(k=>DB.G[k]=S[k]);if(E.act&&!E.pr){Object.assign(S,{fl:flag,md:mode,bg,bp});MK.forEach(k=>DB.M[E.m][k]=S[k]);E.bet=bet;DB.sess=E}persist()};
+const save=()=>{GK.forEach(k=>DB.G[k]=S[k]);if(E.act&&!E.pr){if(E.gn==='jug'||E.gn===undefined){Object.assign(S,{fl:flag,md:mode,bg,bp});MK.forEach(k=>DB.M[E.m][k]=S[k]);E.bet=bet}DB.sess=E}persist()};
 const mod=x=>((x%N)+N)%N,sy=(t,i)=>STRIPS[i][mod(t)],sl=ms=>new Promise(r=>setTimeout(r,ms)),ez=p=>1-(1-p)*(1-p);
 const R=[0,1,2].map(i=>({el:$('#r'+i),d:[3,10,17][i],v:0,m:0}));
 R.forEach((r,i)=>{r.st=r.el.querySelector('.st');r.st.innerHTML=Array.from({length:N*3},(_,j)=>`<svg viewBox="0 0 100 100"><use href="#y${STRIPS[i][j%N]}"/></svg>`).join('')});
@@ -422,7 +439,7 @@ $('#rs').onclick=()=>{$('#rc').hidden=false};
 $('#ry').onclick=()=>{closeAll();resetPrac()};
 const yen=n=>'¥'+Math.abs(n).toLocaleString('ja-JP'),sg=n=>(n>0?'+':n<0?'-':'±')+yen(n),cl=n=>n>0?'pos':n<0?'neg':'',net=()=>E.cash+(E.tray+E.cr)*20-E.init-E.added;
 const NAMES=['ネオンスター','ゴールドクラウン','ブルーパレス','ルビーセブン','ミラージュ','ロイヤルピエロ'],TRAIT=['入口すぐの角台','島の中央・人気台','静かな奥の台','出玉自慢の台','リプレイが軽い台','ピエロ推しの台'];
-const P=DB.P;let fund={init:5000,add:false,cap:5000},selM=0,prac=false,ppK='';
+const P=DB.P;let fund={init:5000,add:false,cap:5000},selM=0,prac=false,ppK='',moving=false;
 const rates=()=>{const[a,b,c]=ST[S.set];return E.pr?[P.sb||a,P.sr||b,P.sbl||c,P.srp||7.3,P.sch||33,1024]:[a,b,c,7.3,33,1024]};
 const need=()=>E.pr?'':E.tray>0?'メダルを投入口へ入れてください':E.cash>=1000?'紙幣を投入してメダルを受け取ってください':E.cap-E.added>=1000?'資金を追加してください':'メダルがありません';
 function go(n){$$('.scr').forEach(e=>e.classList.toggle('show',e.id==='s-'+n));$('#cab').classList.toggle('on',n==='game');scrollTo(0,0);fit()}
@@ -431,9 +448,9 @@ function renderFund(){$('#fi').value=fund.init;$('#fci').value=fund.cap;$$('#fa 
 const stt=i=>{const m=DB.M[i];return E.act&&E.m===i?'遊技中':m.md!=='N'?m.md+'中':m.fl?'GOGO!点灯':'空き台'};
 const feat=i=>{const m=DB.M[i],c=m.ng/(m.big+m.reg||1);return TRAIT[i]+(m.cg>=500?'・ハマり中':'')+(c<140?'・好調':c>230?'・不調気味':'')};
 const PF=[['set','設定',[0,1,2,3,4,5],v=>v+1],['rs','リール回転速度',[.5,.75,1,1.5,2],v=>'x'+v],['ss','リール停止速度',[.5,1,1.5,2],v=>'x'+v],['aspd','オートプレイ速度',[0,1,2],v=>SPN[v]],['bonus','ボーナス成立状態',['N','BIG','REG'],v=>v==='N'?'なし':v+'成立']];
-const PN=[['sb','BIG確率(1/x、空欄=設定値)'],['sr','REG確率(1/x)'],['sbl','ベル確率(1/x)'],['srp','リプレイ確率(1/x)'],['sch','チェリー確率(1/x)'],['cr','クレジット初期値(枚)']];
-function renderPP(){const cur=k=>k==='aspd'?DB.G.spd:P[k];$('#pp2').innerHTML='<h3>練習設定(練習モード内のみ有効・入店には影響しません)</h3>'+PF.map(([k,t,o,f])=>`<label>${t}<select data-k='${k}'>${o.map(v=>`<option value='${v}'${v===cur(k)?' selected':''}>${f(v)}</option>`).join('')}</select></label>`).join('')+PN.map(([k,t])=>`<label>${t}<input data-k='${k}' type='number' min='0' value='${P[k]||''}'></label>`).join('')}
-function renderPick(){const m=DB.M[selM];$('#pk-t').textContent=prac?'練習モード:台選択':'台選択';
+const P_FIELDS=[['sb','BIG確率(1/x、空欄=設定値)'],['sr','REG確率(1/x)'],['sbl','ベル確率(1/x)'],['srp','リプレイ確率(1/x)'],['sch','チェリー確率(1/x)'],['cr','クレジット初期値(枚)']];
+function renderPP(){const cur=k=>k==='aspd'?DB.G.spd:P[k];$('#pp2').innerHTML='<h3>練習設定(練習モード内のみ有効・入店には影響しません)</h3>'+PF.map(([k,t,o,f])=>`<label>${t}<select data-k='${k}'>${o.map(v=>`<option value='${v}'${v===cur(k)?' selected':''}>${f(v)}</option>`).join('')}</select></label>`).join('')+P_FIELDS.map(([k,t])=>`<label>${t}<input data-k='${k}' type='number' min='0' value='${P[k]||''}'></label>`).join('')}
+function renderPick(){const m=DB.M[selM];$('#pk-t').textContent=prac?'練習モード:台選択':moving?'台移動':'台選択';$('#pk-s').textContent=E.act&&!E.pr?`所持金 ${yen(E.cash)} / メダル ${E.tray}枚 / クレジット ${E.cr}枚`:'';$('#p-oth').hidden=prac;$('#p-back').textContent=moving?'退店する':'戻る';
 $('#pg').innerHTML=DB.M.map((m,i)=>`<button class='cd2${i===selM?' on':''}' data-i='${i}'><b>${i+1}号機</b><em>${NAMES[i]}</em><span>設定 ${m.set+1}</span><span class='st'>${stt(i)}</span><span>BIG ${m.big} / REG ${m.reg}</span><span>総G ${m.tg}</span><small>${feat(i)}</small></button>`).join('');
 $('#pd').innerHTML=`<h3>${selM+1}号機 ${NAMES[selM]} の詳細</h3><div class='tb'>${[['設定',m.set+1],['稼働状態',stt(selM)],['総ゲーム数',m.tg],['現在のゲーム数',m.cg],['BIG / REG',`${m.big} / ${m.reg}`],['BIG確率',pr(m.ng,m.big)],['REG確率',pr(m.ng,m.reg)],['合成確率',pr(m.ng,m.big+m.reg)],['最大獲得枚数',m.mx],['差枚数',m.df]].map(([a,b])=>`<div><span>${a}</span><b>${b}</b></div>`).join('')}</div>`;
 $('#pp2').hidden=!prac;if(prac)renderPP();$('#p-go').textContent=prac?'練習開始':'遊技開始';renderMe()}
@@ -442,9 +459,9 @@ $('#me').onclick=e=>{const v=e.target.dataset.me;if(v===undefined)return;DB.G.me
 $('#me2').onclick=()=>{S.me=!S.me;DB.G.me=S.me;save();renderSet();ui()};
 function loadSt(){if(E.pend){E.bet=0;E.fr=false;E.pend=false}mode=S.md;flag=S.fl;bg=S.bg;bp=S.bp;bet=E.bet||0;st='IDLE';auto=false}
 function begin(){loadSt();rec.length=0;lastPay=0;dc=E.cr;$('#cr').textContent=dc;document.body.dataset.m=E.pr?'prac':'hall';$('#ex').textContent=E.pr?'練習終了':'退店';if(E.pr&&P.bonus!=='N')flag=P.bonus;lamp(mode!=='N'?'on bk':flag?'on':'');clearInterval(bgm);if(mode!=='N')bgmStart();$('.rl').classList.remove('win');$$('.ln line.on').forEach(l=>l.classList.remove('on'));ppK='';go('game');ui();toast(E.pr?'練習モード:資金は消費されません':'紙幣を投入してメダルを受け取りましょう')}
-function startHall(){E=newE(selM,fund.init,fund.add?fund.cap:0,false);E.act=true;S={...DB.G,...DB.M[selM]};begin();save()}
+function startHall(){if(!E.act||E.pr){E=newE(selM,fund.init,fund.add?fund.cap:0,false);E.act=true}E.m=selM;E.jm=true;E.gn='jug';moving=false;S={...DB.G,...DB.M[selM]};begin();save()}
 function startPrac(){E=newE(selM,0,0,true);E.cr=P.cr;S={...DB.G,...defM(P.set)};RS=P.rs||1;SS=P.ss||1;begin()}
-function resume(){E=DB.sess;E.act=true;S={...DB.G,...DB.M[E.m]};begin();save()}
+function resume(){E=DB.sess;E.act=true;if(E.gn==='jug'||E.gn===undefined){S={...DB.G,...DB.M[E.m]};begin();save()}else{if(E.pbp)pinForfeit();S={...DB.G,...DB.M[E.m]};E.gn='';moving=true;prac=false;selM=E.m;renderPick();go('pick');save()}}
 function resetPrac(){if(!E.pr||st!=='IDLE')return;S={...DB.G,...defM(P.set)};Object.assign(E,{cr:P.cr,tray:0,tb:0,tp:0,g:0,big:0,reg:0,fr:false});mode='N';flag=null;bg=bp=0;bet=0;lamp('');clearInterval(bgm);rec.length=0;ui()}
 function fb(t){if(!E.pr||st!=='IDLE'||mode!=='N')return;flag=t;lamp(t?'on':'');if(t){flash();sfx('gogo')}ui()}
 function stat(){const c=(a,b,k='')=>`<div class='ch'><small>${a}</small><b class='${k}'>${b}</b></div>`,n=net();
@@ -462,13 +479,13 @@ function insMed(n){n=Math.min(n|0,E.tray);if(n<1)return 0;E.tray-=n;E.cr+=n;E.mi
 function cancelBet(){if(bet>0&&!E.fr&&mode==='N'){E.cr+=bet;E.tb-=bet;S.df+=bet}bet=0;E.fr=false}
 function dead(){return mode==='N'&&bet<3&&!E.fr&&E.cr+bet<3&&E.tray===0&&E.cash<1000&&E.cap-E.added<1000}
 function chk(){if(E.pr||!E.act||st!=='IDLE'||!dead())return;setAuto(false);toast('資金・メダル・クレジットがなくなりました');setTimeout(()=>{if(E.act&&dead())leave('dead')},1400)}
-function leave(why){setAuto(false);ppK='';spinOff();clearInterval(bgm);if(E.pr){RS=SS=1;E=newE(0,0,0,true);S={...DB.G,...defM(0)};go('top');return}cancelBet();finish(why)}
-function finish(why){save();const t1=Date.now(),ng=E.g-E.bgm.BIG-E.bgm.REG,r={m:E.m,set:S.set,t0:E.t0,t1,g:E.g,ng,init:E.init,added:E.added,cash:E.cash,tray:E.tray,cr:E.cr,tb:E.tb,tp:E.tp,big:E.big,reg:E.reg,bgm:{...E.bgm},rc:{...E.rc},mx:E.mx,mp:E.mp,net:net(),why};DB.H.unshift(r);DB.H.length=Math.min(DB.H.length,60);E.act=false;DB.sess=null;persist();renderRes(r);go('res')}
+function leave(why){if(E.pbp&&PN.run)pinEnd();pinStop();setAuto(false);ppK='';spinOff();clearInterval(bgm);if(E.pr){RS=SS=1;E=newE(0,0,0,true);S={...DB.G,...defM(0)};go('top');return}cancelBet();finish(why)}
+function finish(why){moving=false;save();const t1=Date.now(),ng=E.g-E.bgm.BIG-E.bgm.REG,r={m:E.m,set:S.set,t0:E.t0,t1,g:E.g,ng,init:E.init,added:E.added,cash:E.cash,tray:E.tray,cr:E.cr,tb:E.tb,tp:E.tp,big:E.big,reg:E.reg,bgm:{...E.bgm},rc:{...E.rc},mx:E.mx,mp:E.mp,net:net(),why,jm:E.jm,pin:E.pin||null};DB.H.unshift(r);DB.H.length=Math.min(DB.H.length,60);E.act=false;DB.sess=null;persist();renderRes(r);go('res')}
 function renderRes(r){const pc=(n,g)=>g?(n/g*100).toFixed(2)+'%':'--',tm=Math.round((r.t1-r.t0)/1000),dt=x=>new Date(x).toLocaleString('ja-JP'),row=([a,b,k])=>`<div><span>${a}</span><b class='${k||''}'>${b}</b></div>`,sec=(t,rs)=>`<h3>${t}</h3><div class='tb'>${rs.map(row).join('')}</div>`,val=(r.tray+r.cr)*20,rr=(n,k)=>[n,`${r.rc[k]}回 / ${pr(r.g,r.rc[k])} / ${pc(r.rc[k],r.g)}`];
-$('#rb').innerHTML=(r.why==='dead'?`<p>資金・メダル・クレジットがなくなったため遊技を終了しました。</p>`:'')+sec('基本情報',[['遊技した台',`${r.m+1}号機 ${NAMES[r.m]}(設定${r.set+1})`],['遊技開始時刻',dt(r.t0)],['遊技終了時刻',dt(r.t1)],['遊技時間',`${tm/3600|0}時間${tm%3600/60|0}分${tm%60}秒`],['総ゲーム数',r.g],['初期持ち込み資金',yen(r.init)],['追加資金合計',yen(r.added)],['最終残金',yen(r.cash)],['最終メダル枚数',r.tray+'枚'],['最終クレジット',r.cr+'枚'],['総BET枚数',r.tb+'枚'],['総払い出し枚数',r.tp+'枚'],['最終収支',sg(r.net),cl(r.net)]])+sec('ボーナス統計',[['BIG回数',r.big],['REG回数',r.reg],['BIG確率',pr(r.ng,r.big)],['REG確率',pr(r.ng,r.reg)],['合成確率',pr(r.ng,r.big+r.reg)],['BIG中のゲーム数',r.bgm.BIG+'G'],['REG中のゲーム数',r.bgm.REG+'G']])+sec('小役統計(回数 / 確率 / 総ゲーム数に対する割合)',[rr('ベル','BELL'),rr('リプレイ','REPLAY'),rr('チェリー','CHERRY'),rr('ピエロ(ボーナス中含む)','PIERROT'),rr('その他(ハズレ)','NONE')])+sec('収支分析',[['初期資金',yen(r.init)],['追加資金',yen(r.added)],['総投入資金',yen(r.init+r.added)],['総払い出し',`${r.tp}枚(${yen(r.tp*20)}相当)`],['最終所持金',yen(r.cash)],['メダル評価額(20円/枚・換金不可)',yen(val)],['収支',sg(r.net),cl(r.net)],['1ゲーム平均収支',r.g?sg(Math.round(r.net/r.g)):'--',cl(r.net)],['最高獲得枚数(ボーナス1回)',r.mx+'枚'],['最大払い出し(1ゲーム)',r.mp+'枚']])+ext(r);rx(r)}
+$('#rb').innerHTML=(r.why==='dead'?`<p>資金・メダル・クレジットがなくなったため遊技を終了しました。</p>`:'')+sec('基本情報',[['遊技した台',r.jm===false?'ピンボールのみ(ジャグラー未遊技)':`${r.m+1}号機 ${NAMES[r.m]}(設定${r.set+1})`],['遊技開始時刻',dt(r.t0)],['遊技終了時刻',dt(r.t1)],['遊技時間',`${tm/3600|0}時間${tm%3600/60|0}分${tm%60}秒`],['総ゲーム数',r.g],['初期持ち込み資金',yen(r.init)],['追加資金合計',yen(r.added)],['最終残金',yen(r.cash)],['最終メダル枚数',r.tray+'枚'],['最終クレジット',r.cr+'枚'],['総BET枚数',r.tb+'枚'],['総払い出し枚数',r.tp+'枚'],['最終収支',sg(r.net),cl(r.net)]])+sec('ボーナス統計',[['BIG回数',r.big],['REG回数',r.reg],['BIG確率',pr(r.ng,r.big)],['REG確率',pr(r.ng,r.reg)],['合成確率',pr(r.ng,r.big+r.reg)],['BIG中のゲーム数',r.bgm.BIG+'G'],['REG中のゲーム数',r.bgm.REG+'G']])+sec('小役統計(回数 / 確率 / 総ゲーム数に対する割合)',[rr('ベル','BELL'),rr('リプレイ','REPLAY'),rr('チェリー','CHERRY'),rr('ピエロ(ボーナス中含む)','PIERROT'),rr('その他(ハズレ)','NONE')])+sec('収支分析',[['初期資金',yen(r.init)],['追加資金',yen(r.added)],['総投入資金',yen(r.init+r.added)],['総払い出し',`${r.tp}枚(${yen(r.tp*20)}相当)`],['最終所持金',yen(r.cash)],['メダル評価額(20円/枚・換金不可)',yen(val)],['収支',sg(r.net),cl(r.net)],['1ゲーム平均収支',r.g?sg(Math.round(r.net/r.g)):'--',cl(r.net)],['最高獲得枚数(ボーナス1回)',r.mx+'枚'],['最大払い出し(1ゲーム)',r.mp+'枚']])+ext(r);rx(r)}
 const HELP=`<h3>遊び方</h3><p>「入店する」で資金を決め、1〜6号機から台を選んで遊技します。①紙幣投入口から紙幣を入れてメダルを受け取る ②メダルを投入口へ入れてクレジットにする ③BETを押す(1ゲーム3枚) ④レバーを引く ⑤左・中・右のSTOPボタンで止める、の順に進めます。</p><h3>仮想通貨システム</h3><p>すべてゲーム内のお金です。1,000円=50枚(1枚=20円)。換金はできません。紙幣は所持金から投入され、追加資金は入店時に決めた上限まで遊技中に追加できます。</p><h3>クレジットの仕組み</h3><p>クレジットは投入口へ入れたメダルだけで増え、BETで減ります。払い出しはメダルとして受け皿に出るため、続けて遊ぶには再度メダルを投入口へ入れてください。リプレイは追加BETが不要です。</p><h3>操作</h3><p>BET:A / MAX BET:S / レバー:Space(タップ) / STOP:Z・X・C。スマホは画面のボタンをタップします。</p><h3>役</h3><p>ベル:7枚 / チェリー(左リール):2枚 / ピエロ:10枚 / リプレイ:再遊技。BIG・REGは内部抽選でGOGO!ランプが点灯したら7を狙うとボーナス開始です。BIGは最大30G、REGは12G。ボーナス中はBET不要です。</p><h3>練習モード</h3><p>資金を消費せず、設定・確率・回転速度・ボーナス状態などを自由に変えて試せます。入店モードには影響しません。</p><h3>収支・統計の見方</h3><p>収支=所持金+(メダル+クレジット)×20円−(持込+追加)で計算します。メダル評価額は参考値です。確率は通常時ゲーム数÷回数で表示します。</p>`;
 function renderInfo(){const H=DB.H,tot=H.reduce((a,r)=>a+r.net,0),pm=NAMES.map((_,i)=>{const h=H.filter(r=>r.m===i),s=h.reduce((a,r)=>a+r.net,0);return`<div><span>${i+1}号機 (${h.length}回)</span><b class='${cl(s)}'>${sg(s)}</b></div>`}).join('');
-$('#ib').innerHTML=`<h2>詳細</h2>${HELP}<h3>過去の収支</h3><div class='tb'><div><span>累計収支(${H.length}回)</span><b class='${cl(tot)}'>${sg(tot)}</b></div>${pm}</div><h3>遊技履歴(直近10回)</h3><div class='tb'>${H.slice(0,10).map(r=>`<div><span>${new Date(r.t0).toLocaleString('ja-JP')} ${r.m+1}号機 ${r.g}G</span><b class='${cl(r.net)}'>${sg(r.net)}</b></div>`).join('')||'<div><span>履歴なし</span></div>'}</div><div class='act'><button id='i-rs'>統計をリセット</button><button id='i-back' class='pri'>戻る</button></div><div id='i-rc' hidden><p>遊技履歴と各台のデータを消去します。よろしいですか？</p><div class='act'><button id='i-y' class='pri'>消去する</button><button id='i-n'>やめる</button></div></div>`}
+$('#ib').innerHTML=`<h2>詳細</h2>${HELP}<h3>過去の収支</h3><div class='tb'><div><span>累計収支(${H.length}回)</span><b class='${cl(tot)}'>${sg(tot)}</b></div>${pm}</div>${pinLife()}<h3>ジャグラー遊技履歴(直近10回)</h3><div class='tb'>${H.slice(0,10).map(r=>`<div><span>${new Date(r.t0).toLocaleString('ja-JP')} ${r.jm===false?'ピンボール'+(r.pin?r.pin.n:0)+'回':`${r.m+1}号機 ${r.g}G`+(r.pin&&r.pin.n?` / ピンボール${r.pin.n}回`:'')}</span><b class='${cl(r.net)}'>${sg(r.net)}</b></div>`).join('')||'<div><span>履歴なし</span></div>'}</div><div class='act'><button id='i-rs'>統計をリセット</button><button id='i-back' class='pri'>戻る</button></div><div id='i-rc' hidden><p>遊技履歴と各台のデータを消去します。よろしいですか？</p><div class='act'><button id='i-y' class='pri'>消去する</button><button id='i-n'>やめる</button></div></div>`}
 function enter(){const d=$('#door');d.className='show';sfx('chime');setTimeout(()=>sfx('door'),500);setTimeout(()=>{renderFund();go('fund');d.classList.add('out')},2100);setTimeout(()=>d.className='',2600)}
 $('#fc').innerHTML=$('#fcc').innerHTML=[1000,2000,3000,5000,10000,20000,50000].map(v=>`<button data-v='${v}'>${yen(v)}</button>`).join('');
 $('#fc').onclick=e=>{const v=e.target.dataset.v;if(v){fund.init=+v;renderFund()}};
@@ -484,21 +501,24 @@ $('#m-re').onclick=resume;
 $('#m-if').onclick=()=>{renderInfo();go('info')};
 $('#f-back').onclick=()=>go('top');
 $('#f-go').onclick=()=>{fund.init=n1k($('#fi').value,1000);fund.cap=n1k($('#fci').value,1000);renderPick();go('pick')};
-$('#p-back').onclick=()=>{if(prac)go('top');else{renderFund();go('fund')}};
+$('#p-back').onclick=()=>{if(moving)askExit();else if(prac)go('top');else{renderFund();go('fund')}};
 $('#p-go').onclick=()=>prac?startPrac():startHall();
 $('#r-again').onclick=()=>{if(pendEx())return toast('メダル/景品が残っています。先に交換・換金を済ませてください');prac=false;renderFund();go('fund')};
 $('#r-top').onclick=()=>{topBtns();go('top')};
-$('#ex').onclick=()=>{if(st!=='IDLE')return;$('#dxt').textContent=E.pr?'練習を終了しますか？':'退店しますか？';$('#dx').classList.add('show')};
+$('#ex').onclick=()=>{if(st!=='IDLE')return;askExit()};
 $('#dx-y').onclick=()=>{closeAll();leave()};
+$('#dx-m').onclick=()=>{closeAll();moveMachine()};
 $('#cb').onclick=()=>{if(E.pr)return toast('練習モードでは紙幣は不要です');ppK=ppK==='b'?'':'b';ppRender()};
 $('#cm').onclick=()=>{ppK=ppK==='m'?'':'m';ppRender()};
 $('#pp').onclick=e=>{const d=e.target.dataset;if(d.b)bill(+d.b);else if(d.f)addFund(+d.f);else if(d.m)insMed(+d.m)};
 $('#pf1').onclick=()=>fb('BIG');$('#pf2').onclick=()=>fb('REG');$('#pf0').onclick=()=>fb(null);
-$('#ib').onclick=e=>{const id=e.target.id;if(id==='i-back'){go('top')}else if(id==='i-rs')$('#i-rc').hidden=false;else if(id==='i-n')$('#i-rc').hidden=true;else if(id==='i-y'){if(DB.sess)toast('遊技中の台があるため、先に再開して退店してください');else{DB.H=[];DB.M=mkDB().M;persist();renderInfo();toast('統計をリセットしました')}}};
+$('#ib').onclick=e=>{const id=e.target.id;if(id==='i-back'){go('top')}else if(id==='i-rs')$('#i-rc').hidden=false;else if(id==='i-n')$('#i-rc').hidden=true;else if(id==='i-y'){if(DB.sess)toast('遊技中の台があるため、先に再開して退店してください');else{DB.H=[];DB.M=mkDB().M;DB.PB=mkDB().PB;persist();renderInfo();toast('統計をリセットしました')}}};
 const tbl=(t,rs)=>`<h3>${t}</h3><div class='tb'>${rs.map(([a,b,k])=>`<div><span>${a}</span><b class='${k||''}'>${b}</b></div>`).join('')}</div>`;
 const pendEx=()=>{const h=DB.H[0];return h&&h.ex!==2&&(h.ex===1||h.tray+h.cr>0)?h:null};
 function topBtns(){const h=pendEx();$('#m-re').hidden=!DB.sess;$('#m-ex').hidden=!h;if(h)$('#m-ex').textContent=h.ex===1?'換金所へ行く':'景品に交換する'}
-function ext(r){if(r.ex===1)return`<p>景品 ${r.pz}個(${yen(r.pz*20)}相当)を持っています。換金所で現金に交換してください。</p>`;
+function pinSec(r){const p=r.pin;return p&&p.n?tbl('ピンボール(今回の入店)',[['プレイ回数',p.n+'回'],['累計スコア',p.sc.toLocaleString()],['最高スコア',p.best.toLocaleString()],['消費メダル',p.sp+'枚'],['獲得メダル',p.wn+'枚'],['メダル収支',(p.wn-p.sp)+'枚',cl(p.wn-p.sp)]]):''}
+function ext(r){return pinSec(r)+ext0(r)}
+function ext0(r){if(r.ex===1)return`<p>景品 ${r.pz}個(${yen(r.pz*20)}相当)を持っています。換金所で現金に交換してください。</p>`;
 if(r.ex!==2)return r.tray+r.cr>0?`<p>メダル・クレジットが合計 ${r.tray+r.cr}枚 残っています。景品に交換し、換金所で現金化できます。</p>`:'';
 const tin=r.init+r.added,pl=r.fcash-tin;return tbl('最終的な支出の詳細',[['初期持ち込み資金',yen(r.init)],['追加資金',yen(r.added)],['総投入資金',yen(tin)],['紙幣投入額(メダル購入に使用)',yen(tin-r.cash)],['紙幣にしなかった残金',yen(r.cash)],['総BET枚数',r.tb+'枚'],['総払い出し枚数',r.tp+'枚'],['払い出し率(払出÷BET)',r.tb?(r.tp/r.tb*100).toFixed(1)+'%':'--'],['景品に交換したメダル',(r.pz||0)+'枚'],['換金額(景品→現金)',yen(r.cashed)],['最終手持ち現金(残金+換金額)',yen(r.fcash)],['最終損益',sg(pl),cl(pl)],['実質支出額',yen(Math.max(0,-pl))],['1ゲーム平均損益',r.g?sg(Math.round(pl/r.g)):'--',cl(pl)]])}
 function rx(r){const m=r.tray+r.cr;$('#rx').innerHTML=r.ex===2?'':r.ex===1?`<button id='x-ca' class='pri'>換金所へ行く(景品 ${r.pz}個)</button>`:m>0?`<button id='x-pz' class='pri'>景品に交換する(${m}枚)</button>`:`<button id='x-fin'>支出の詳細を見る</button>`}
@@ -527,6 +547,98 @@ sq(7200,scEnd)}
 $('#sc-skip').onclick=scEnd;
 $('#rx').onclick=e=>{const id=e.target.id,r=DB.H[0];if(!r)return;if(id==='x-pz')prizeScene(r);else if(id==='x-ca')cashScene(r);else if(id==='x-fin'){r.ex=2;r.pz=0;r.cashed=0;r.fcash=r.cash;persist();renderRes(r);topBtns()}};
 $('#m-ex').onclick=()=>{const h=pendEx();if(!h)return;renderRes(h);go('res');if(h.ex===1)cashScene(h);else prizeScene(h)};
+function askExit(){$('#dxt').textContent=E.pr?'練習を終了しますか？':'退店しますか？';$('#dx-m').hidden=E.pr||moving;$('#dx').classList.add('show')}
+function moveMachine(){if(PN.run){toast('ゲーム終了後に操作してください');return}closeAll();pinStop();setAuto(false);spinOff();clearInterval(bgm);if(E.gn==='jug'){cancelBet();save()}E.gn='';moving=true;prac=false;selM=E.m;renderPick();save();go('pick')}
+const PIN={fee:10,balls:3,g:900,pay:[[10000,100],[5000,40],[2500,20],[1000,10],[500,5],[0,0]],pts:{bump:60,sling:15,tgt:120,bank:900},combo:{gap:1.2,step:5,max:5},mmax:8};
+const PW=400,PH=700,BR=8,pinPay=s=>(PIN.pay.find(([m])=>s>=m)||[0,0])[1];
+const WALLS=[[20,200,20,560],[380,200,380,670],[350,190,350,670],[350,670,380,670],[20,560,110,640],[350,560,260,640]];
+for(let i=0;i<24;i++){const a=Math.PI*(1-i/24),b=Math.PI*(1-(i+1)/24);WALLS.push([200+180*Math.cos(a),200-180*Math.sin(a),200+180*Math.cos(b),200-180*Math.sin(b)])}
+const BUMP=[[120,230],[250,230],[185,300],[185,155]].map(([x,y],i)=>({x,y,r:24,f:0,c:['#ff2a6d','#2a8cff','#ffd24d','#2aff9c'][i]}));
+const POSTS=[[70,400],[300,400],[185,440]];
+const SLING=[{f:[58,490,98,548],o:[[98,548,58,548],[58,548,58,490]]},{f:[312,490,272,548],o:[[272,548,312,548],[312,548,312,490]]}];
+const TG=[];[330,362,394].forEach(y=>{TG.push({s:'L',x1:26,y1:y,x2:26,y2:y+22,lit:0,f:0});TG.push({s:'R',x1:344,y1:y,x2:344,y2:y+22,lit:0,f:0})});
+const FL=[{px:110,py:640,L:62,s:1},{px:260,py:640,L:62,s:-1}].map(f=>({...f,a:.5236,on:0,vx:0,vy:0,tx:f.px+f.s*62*Math.cos(.5236),ty:f.py+62*Math.sin(.5236)}));
+const PN={on:0,run:0,st:'idle',ball:{x:365,y:662,vx:0,vy:0},score:0,balls:0,t:0,lh:-9,combo:0,bm:1,mult:1,pops:[],tr:[],shake:0,raf:0,lt:0,slow:0,bgm:0,bi:0,hud:'',endAt:0,fin:0,ctx:null,dpr:1,msg:'',msgT:0,ovMode:'',pt:{}};
+const GAMES={pin:{name:'ピンボール',desc:'3球でハイスコアを狙え',fee:PIN.fee,ok:1,start:()=>startPin()},pachi:{name:'パチンコ',desc:'近日追加予定',ok:0},push:{name:'メダルプッシャー',desc:'近日追加予定',ok:0}};
+function renderOth(){$('#og').innerHTML=Object.entries(GAMES).map(([k,g])=>`<button class='cd2${g.ok?'':' off'}' data-g='${k}'${g.ok?'':' disabled'}><b>${g.name}</b><span>${g.desc}</span><small>${g.ok?`1ゲーム${g.fee}メダル`:'準備中'}</small></button>`).join('')}
+function startPin(){if(!E.act||E.pr){E=newE(selM,fund.init,fund.add?fund.cap:0,false);E.act=true;E.jm=false}pinEnter()}
+function pinLife(){const B=DB.PB,a=B.n?Math.round(B.sc/B.n):0;return tbl('ピンボール統計(ジャグラーとは別集計)',[['プレイ回数',B.n+'回'],['累計スコア',B.sc.toLocaleString()],['最高スコア',B.hi.toLocaleString()],['平均スコア',a.toLocaleString()],['累計消費メダル',B.sp+'枚'],['累計獲得メダル',B.wn+'枚'],['メダル収支',(B.wn-B.sp)+'枚',cl(B.wn-B.sp)]])+(B.last.length?`<div class='tb'>${B.last.map(r=>`<div><span>${new Date(r.t).toLocaleString('ja-JP')}</span><b>${r.s.toLocaleString()}点 / +${r.w}枚</b></div>`).join('')}</div>`:'')}
+const pnS=k=>{if(!AC||S.mute)return;({bump:()=>{tn(520+Math.random()*120,.12,'triangle',.18,0,260);nz(.04,2000,2,.1)},sling:()=>tn(300,.08,'square',.1,0,150),tgt:()=>{tn(880,.1,'sine',.15);tn(1320,.12,'sine',.1,.05)},bank:()=>[523,659,784,1047].forEach((f,i)=>tn(f,.25,'triangle',.14,i*.07)),flip:()=>{nz(.04,700,1,.2);tn(140,.06,'square',.12,0,80)},launch:()=>{tn(100,.5,'sawtooth',.12,0,420);nz(.3,600,.8,.15)},wall:()=>nz(.03,1800,2,.05),lost:()=>[392,330,262,196].forEach((f,i)=>tn(f,.2,'triangle',.14,i*.12)),jack:()=>[523,659,784,1047,1319,1568].forEach((f,i)=>{tn(f,.35,'square',.07,i*.08);tn(f/2,.35,'triangle',.08,i*.08)})})[k]()};
+const hit=o=>{if(PN.t-(o.cd||-9)<.09)return 0;o.cd=PN.t;return 1};
+function pSeg(b,x1,y1,x2,y2,rad,e,vf){const dx=x2-x1,dy=y2-y1,l2=dx*dx+dy*dy;let t=l2?((b.x-x1)*dx+(b.y-y1)*dy)/l2:0;t=t<0?0:t>1?1:t;const cx=x1+t*dx,cy=y1+t*dy,R=BR+rad;let nx=b.x-cx,ny=b.y-cy,d=Math.hypot(nx,ny);if(d>=R)return null;if(d<1e-6){const l=Math.hypot(dx,dy)||1;nx=-dy/l;ny=dx/l;d=0}else{nx/=d;ny/=d}
+b.x+=nx*(R-d);b.y+=ny*(R-d);const[vx,vy]=vf?vf(t):[0,0];let rx=b.vx-vx,ry=b.vy-vy;const vn=rx*nx+ry*ny,imp=-vn;if(vn<0){const k=1+(imp<40?0:e);rx-=k*vn*nx;ry-=k*vn*ny;const tx=-ny,ty=nx,vt=rx*tx+ry*ty;rx-=vt*.015*tx;ry-=vt*.015*ty}b.vx=rx+vx;b.vy=ry+vy;return{nx,ny,imp:Math.max(0,imp)}}
+function pCirc(b,x,y,r,e,kick){const dx=b.x-x,dy=b.y-y,d=Math.hypot(dx,dy),R=BR+r;if(d>=R||d===0)return null;const nx=dx/d,ny=dy/d;b.x=x+nx*R;b.y=y+ny*R;const vn=b.vx*nx+b.vy*ny;if(vn<0){b.vx-=(1+e)*vn*nx;b.vy-=(1+e)*vn*ny}if(kick){const k=kick*(.9+Math.random()*.2);b.vx+=nx*k;b.vy+=ny*k}return{nx,ny,imp:Math.max(0,-vn)}}
+const pMsg=t=>{PN.msg=t;PN.msgT=1.6};
+function pAdd(base,x,y){const c=PIN.combo;PN.combo=PN.t-PN.lh<c.gap?PN.combo+1:1;PN.lh=PN.t;const cm=Math.min(c.max,1+(PN.combo/c.step|0));PN.mult=Math.min(PIN.mmax,cm+PN.bm-1);const v=base*PN.mult;PN.score+=v;PN.pops.push({x,y,v,m:PN.mult,t:0});if(PN.pops.length>14)PN.pops.shift();if(v>=500){PN.shake=10;pnS('jack')}return v}
+function pinBall(){Object.assign(PN.ball,{x:365,y:662,vx:0,vy:0});PN.st='ready';PN.slow=0}
+function pinReset(){TG.forEach(t=>{t.lit=0;t.f=0});BUMP.forEach(m=>m.f=0)}
+function pinLaunch(){if(!PN.on||!PN.run||PN.st!=='ready')return;const b=PN.ball;b.vy=-(1140+Math.random()*120);b.vx=(Math.random()-.5)*40;PN.st='play';pnS('launch')}
+function pinStep(dt){PN.t+=dt;FL.forEach(f=>{const px=f.tx,py=f.ty,ta=f.on?-.4887:.5236,d=ta-f.a,m=20*dt;f.a+=Math.abs(d)<m?d:Math.sign(d)*m;f.tx=f.px+f.s*f.L*Math.cos(f.a);f.ty=f.py+f.L*Math.sin(f.a);f.vx=(f.tx-px)/dt;f.vy=(f.ty-py)/dt});
+if(PN.st==='over'){if(!PN.fin&&PN.t>=PN.endAt){PN.fin=1;pinEnd()}return}if(PN.st!=='play')return;const b=PN.ball;
+b.vy+=PIN.g*dt;b.x+=b.vx*dt;b.y+=b.vy*dt;const sp=Math.hypot(b.vx,b.vy);if(sp>1500){b.vx*=1500/sp;b.vy*=1500/sp}
+for(let k=0;k<2;k++){
+for(const w of WALLS){const r=pSeg(b,w[0],w[1],w[2],w[3],0,.5);if(r&&r.imp>260&&hit(w))pnS('wall')}
+FL.forEach(f=>{const r=pSeg(b,f.px,f.py,f.tx,f.ty,5,.35,t=>[f.vx*t,f.vy*t]);if(r&&r.imp>200&&hit(f))pnS('wall')});
+for(const [x,y] of POSTS)pCirc(b,x,y,7,.5,0);
+for(const m of BUMP){const r=pCirc(b,m.x,m.y,m.r,.4,300);if(r&&hit(m)){m.f=1;pAdd(PIN.pts.bump,m.x,m.y);pnS('bump')}}
+for(const s of SLING){const r=pSeg(b,s.f[0],s.f[1],s.f[2],s.f[3],0,.4);if(r&&r.imp>40&&hit(s)){b.vx+=r.nx*220;b.vy+=r.ny*220;pAdd(PIN.pts.sling,(s.f[0]+s.f[2])/2,s.f[1]);pnS('sling')}s.o.forEach(o=>pSeg(b,o[0],o[1],o[2],o[3],0,.4))}
+for(const t of TG){const r=pSeg(b,t.x1,t.y1,t.x2,t.y2,0,.35);if(r&&r.imp>60&&hit(t)){t.f=1;if(!t.lit){t.lit=1;pAdd(PIN.pts.tgt,t.x1,t.y1)}else pAdd(PIN.pts.tgt/4,t.x1,t.y1);pnS('tgt');
+['L','R'].forEach(sd=>{const g=TG.filter(q=>q.s===sd);if(g.every(q=>q.lit)){g.forEach(q=>q.lit=0);PN.bm=Math.min(4,PN.bm+1);pAdd(PIN.pts.bank,185,360);pMsg(`BANK COMPLETE  BONUS x${PN.bm}`);pnS('bank')}})}}}
+if(b.y>PH+14){PN.balls--;pnS('lost');PN.shake=6;if(PN.balls>0)pinBall();else{PN.st='over';PN.endAt=PN.t+1}return}
+if(b.x>352&&b.y>655&&Math.abs(b.vy)<150){pinBall();return}
+if(b.x<-20||b.x>PW+20||b.y<-50){pinBall();return}
+PN.slow=sp<14?PN.slow+dt:0;if(PN.slow>2.5){b.vx+=(Math.random()-.5)*300;b.vy-=220;PN.slow=0;pMsg('NUDGE')}}
+function pinLoop(ts){if(!PN.on)return;PN.raf=requestAnimationFrame(pinLoop);const dt=Math.min(.033,(ts-(PN.lt||ts))/1000);PN.lt=ts;const n=Math.max(1,Math.ceil(dt/.004));for(let i=0;i<n;i++)pinStep(dt/n);pinDraw();pinUi()}
+function pinDraw(){const c=PN.ctx;if(!c)return;c.setTransform(PN.dpr,0,0,PN.dpr,0,0);c.clearRect(0,0,PW,PH);c.save();
+if(PN.shake>0){c.translate((Math.random()-.5)*PN.shake,(Math.random()-.5)*PN.shake);PN.shake*=.86;if(PN.shake<.3)PN.shake=0}
+let g=c.createLinearGradient(0,0,0,PH);g.addColorStop(0,'#0d1236');g.addColorStop(.55,'#1b0d40');g.addColorStop(1,'#07051a');c.fillStyle=g;c.fillRect(-12,-12,PW+24,PH+24);
+c.fillStyle='#ffffff12';for(let i=0;i<34;i++){c.beginPath();c.arc((i*97)%PW,(i*53)%PH,1+(i%3)*.6,0,7);c.fill()}
+c.textAlign='center';c.fillStyle='#ffffff10';c.font=`28px 'Dela Gothic One',sans-serif`;c.fillText('JUGGLER',185,540);c.font=`12px Orbitron,sans-serif`;c.fillText('ARCADE PINBALL',185,560);
+c.lineCap='round';c.lineJoin='round';c.strokeStyle='#8fd0ff';c.lineWidth=5;c.shadowColor='#2a8cff';c.shadowBlur=10;c.beginPath();WALLS.forEach(w=>{c.moveTo(w[0],w[1]);c.lineTo(w[2],w[3])});c.stroke();c.shadowBlur=0;c.fillStyle='#ffffff08';c.fillRect(352,200,26,470);
+SLING.forEach(s=>{const f=s.f;c.fillStyle='#8a1426';c.beginPath();c.moveTo(f[0],f[1]);c.lineTo(f[2],f[3]);c.lineTo(s.o[0][2],s.o[0][3]);c.closePath();c.fill();c.strokeStyle='#ff5b6b';c.lineWidth=4;c.beginPath();c.moveTo(f[0],f[1]);c.lineTo(f[2],f[3]);c.stroke()});
+TG.forEach(t=>{t.f=Math.max(0,t.f-.05);c.strokeStyle=t.lit?'#ffd24d':'#2a6a8a';c.lineWidth=8;c.shadowColor='#ffd24d';c.shadowBlur=t.lit||t.f?14:0;c.beginPath();c.moveTo(t.x1,t.y1);c.lineTo(t.x2,t.y2);c.stroke()});c.shadowBlur=0;
+c.fillStyle='#b8c0d4';POSTS.forEach(([x,y])=>{c.beginPath();c.arc(x,y,7,0,7);c.fill()});
+BUMP.forEach(m=>{m.f=Math.max(0,m.f-.06);const r=m.r+m.f*4;g=c.createRadialGradient(m.x-6,m.y-6,2,m.x,m.y,r);g.addColorStop(0,'#fff');g.addColorStop(.35,m.c);g.addColorStop(1,'#1a0b2a');c.shadowColor=m.c;c.shadowBlur=8+m.f*30;c.fillStyle=g;c.beginPath();c.arc(m.x,m.y,r,0,7);c.fill();c.shadowBlur=0;c.strokeStyle=m.c;c.lineWidth=3;c.beginPath();c.arc(m.x,m.y,r+5,0,7);c.stroke()});
+FL.forEach(f=>{c.strokeStyle='#ffd24d';c.lineWidth=13;c.shadowColor='#ff8a3a';c.shadowBlur=f.on?16:6;c.beginPath();c.moveTo(f.px,f.py);c.lineTo(f.tx,f.ty);c.stroke();c.shadowBlur=0;c.fillStyle='#e0243a';c.beginPath();c.arc(f.px,f.py,7,0,7);c.fill()});
+const b=PN.ball;if(PN.st==='ready'||PN.st==='play'){if(PN.st==='play'){PN.tr.push([b.x,b.y]);if(PN.tr.length>9)PN.tr.shift()}else PN.tr=[];PN.tr.forEach(([x,y],i)=>{c.fillStyle=`rgba(143,208,255,${i/30})`;c.beginPath();c.arc(x,y,BR*i/10,0,7);c.fill()});g=c.createRadialGradient(b.x-3,b.y-3,1,b.x,b.y,BR);g.addColorStop(0,'#fff');g.addColorStop(.5,'#c9cfdb');g.addColorStop(1,'#5a6070');c.fillStyle=g;c.shadowColor='#8fd0ff';c.shadowBlur=8;c.beginPath();c.arc(b.x,b.y,BR,0,7);c.fill();c.shadowBlur=0}
+if(PN.st==='ready'&&PN.run){c.fillStyle=`rgba(255,241,184,${.5+.5*Math.sin(PN.t*6)})`;c.font=`700 12px Orbitron,sans-serif`;c.fillText('LAUNCH',365,630);c.fillText('▲',365,614)}
+PN.pops=PN.pops.filter(p=>(p.t+=.016)<.9);PN.pops.forEach(p=>{c.globalAlpha=1-p.t/.9;c.fillStyle=p.v>=500?'#ffd24d':'#fff';c.font=`700 ${p.v>=500?22:15}px Orbitron,sans-serif`;c.fillText('+'+p.v+(p.m>1?` x${p.m}`:''),p.x,p.y-p.t*50)});c.globalAlpha=1;
+if(PN.msgT>0){PN.msgT-=.016;c.globalAlpha=Math.min(1,PN.msgT);c.fillStyle='#ffd24d';c.font=`700 16px Orbitron,sans-serif`;c.fillText(PN.msg,185,100);c.globalAlpha=1}
+if(PN.combo>1&&PN.t-PN.lh<PIN.combo.gap+.6){c.textAlign='left';c.fillStyle='#8fd0ff';c.font=`700 13px Orbitron,sans-serif`;c.fillText(`COMBO ${PN.combo}  x${PN.mult}`,30,40)}
+c.restore()}
+const pinOv=h=>{const o=$('#pn-ov');o.hidden=!h;if(h)o.innerHTML=h};
+const pinStartHtml=()=>`<h2>PINBALL</h2><p>1ゲーム${PIN.fee}メダル / ${PIN.balls}球</p><div class='tb'>${PIN.pay.slice().reverse().map(([m,w])=>`<div><span>${m.toLocaleString()}点以上</span><b>${w}枚</b></div>`).join('')}</div><p>ハイスコア <b>${DB.PB.hi.toLocaleString()}</b></p><button id='pn-go' class='pri'></button>`;
+function pinUi(){const p=E.pin||{sp:0,wn:0},k=[PN.score|0,PN.balls,PN.run,PN.mult,E.tray,E.cash,E.cap-E.added,p.sp,p.wn,S.mute,PN.st,PN.ovMode].join();if(k===PN.hud)return;PN.hud=k;
+$('#pn-sc').textContent=(PN.score|0).toLocaleString();$('#pn-b').textContent=PN.run?'●'.repeat(Math.max(0,PN.balls)):'-';$('#pn-m').textContent='x'+PN.mult;$('#pn-sp').textContent=p.sp;$('#pn-wn').textContent=p.wn;$('#pn-so').textContent=S.mute?'音OFF':'音ON';$('#pn-v').value=S.vol;
+$('#pn-mb').innerHTML=`<span>所持金 <b>${yen(E.cash)}</b></span><span>メダル <b>${E.tray}枚</b></span>${[1000,5000,10000].map(b=>`<button data-b='${b}'${b>E.cash?' disabled':''}>${yen(b)}札</button>`).join('')}${E.cap?`<button data-f='1000'${E.cap-E.added<1000?' disabled':''}>追加+¥1,000</button>`:''}`;
+$('#pn-ex').disabled=$('#pn-mv2').disabled=!!PN.run;$('#pn-gu').hidden=!PN.run;const gb=$('#pn-go');if(gb){gb.disabled=E.tray<PIN.fee;gb.textContent=E.tray<PIN.fee?'メダル不足':`${PN.ovMode==='over'?'もう一度':'ゲーム開始'}(${PIN.fee}メダル)`}}
+function pinStart(){if(PN.run||E.pbp||!E.act)return;if(E.tray<PIN.fee){toast(`メダルが足りません(受け皿に${PIN.fee}枚必要)`);return}
+E.tray-=PIN.fee;E.ps=(E.ps||0)+PIN.fee;E.pbp=true;save();
+Object.assign(PN,{run:1,fin:0,score:0,balls:PIN.balls,t:0,lh:-9,combo:0,bm:1,mult:1,pops:[],tr:[],msg:'',msgT:0,slow:0,ovMode:''});pinReset();pinBall();pinOv('');PN.hud='';sfx('coin')}
+function pinEnd(){if(!E.pbp)return;E.pbp=false;const s=PN.score|0,w=pinPay(s),p=E.pin=E.pin||{n:0,sc:0,best:0,sp:0,wn:0},B=DB.PB;E.tray+=w;E.pg=(E.pg||0)+w;p.n++;p.sc+=s;p.best=Math.max(p.best,s);p.sp+=PIN.fee;p.wn+=w;const nb=s>B.hi;B.n++;B.sc+=s;B.sp+=PIN.fee;B.wn+=w;if(nb)B.hi=s;B.last.unshift({t:Date.now(),s,w});B.last.length=Math.min(B.last.length,10);PN.run=0;PN.st='over';save();PN.ovMode='over';
+pinOv(`<h2>GAME OVER</h2><p>最終スコア</p><b class='big'>${s.toLocaleString()}</b><p>獲得メダル <b>${w}枚</b>(消費${PIN.fee}枚)${nb?'<br>ハイスコア更新!':''}</p><p>ハイスコア ${B.hi.toLocaleString()}</p><button id='pn-go' class='pri'></button><button id='pn-mv'>台選択へ</button>`);PN.hud='';pinUi();if(w>0)sfx('pay',Math.min(10,w));if(s>=PIN.pay[0][0])pnS('jack');
+if(E.cash<1000&&E.cap-E.added<1000&&E.tray+E.cr<3){toast('メダルと資金がなくなりました');setTimeout(()=>{if(E.act&&E.gn==='pin')leave('dead')},1600)}}
+function pinForfeit(){if(!E.pbp)return;E.pbp=false;const p=E.pin=E.pin||{n:0,sc:0,best:0,sp:0,wn:0},B=DB.PB;p.n++;p.sp+=PIN.fee;B.n++;B.sp+=PIN.fee;save()}
+const setFl=(i,on)=>{if(!PN.on)return;const f=FL[i];if(f.on===on)return;f.on=on;if(on)pnS('flip')};
+const pnKey=(e,d)=>{const k=e.code;if(k==='KeyA'||k==='ArrowLeft'){setFl(0,d?1:0);e.preventDefault()}else if(k==='KeyD'||k==='ArrowRight'){setFl(1,d?1:0);e.preventDefault()}else if(k==='Space'){if(d&&!e.repeat)pinLaunch();e.preventDefault()}};
+const pkd=e=>{if(!$('.dlg.show'))pnKey(e,true)},pku=e=>pnKey(e,false);
+function pinOn(){if(PN.on)return;PN.on=1;PN.lt=0;addEventListener('keydown',pkd);addEventListener('keyup',pku);PN.raf=requestAnimationFrame(pinLoop);clearInterval(PN.bgm);PN.bgm=setInterval(()=>{if(!AC||S.mute||PN.st!=='play')return;const n=[0,3,7,10,12,10,7,3][PN.bi++%8];tn(220*Math.pow(2,n/12),.14,'triangle',.04)},180);pinFit()}
+function pinStop(){if(!PN.on)return;PN.on=0;cancelAnimationFrame(PN.raf);removeEventListener('keydown',pkd);removeEventListener('keyup',pku);clearInterval(PN.bgm);FL.forEach(f=>f.on=0);PN.pt={}}
+function pinFit(){const c=$('#pn-cv');let h=Math.min(innerHeight*.56,700),w=h*PW/PH;const mw=Math.min(innerWidth-28,440);if(w>mw){w=mw;h=w*PH/PW}c.style.width=w+'px';c.style.height=h+'px'}
+function pinEnter(){E.gn='pin';moving=false;E.pin=E.pin||{n:0,sc:0,best:0,sp:0,wn:0};Object.assign(PN,{run:0,st:'idle',fin:0,hud:'',ovMode:'start',score:0,balls:0,mult:1,pops:[],tr:[]});pinReset();pinOv(pinStartHtml());go('pin');pinOn();pinFit();save();ac();PN.hud=''}
+function pinInit(){PN.ctx=$('#pn-cv').getContext('2d');PN.dpr=Math.min(2,window.devicePixelRatio||1);$('#pn-cv').width=PW*PN.dpr;$('#pn-cv').height=PH*PN.dpr;addEventListener('resize',pinFit);
+[['#pn-l',0],['#pn-r',1]].forEach(([s,i])=>{const b=$(s);b.addEventListener('pointerdown',e=>{e.preventDefault();try{b.setPointerCapture(e.pointerId)}catch(x){}setFl(i,1);b.classList.add('p')});['pointerup','pointercancel','lostpointercapture'].forEach(t=>b.addEventListener(t,()=>{setFl(i,0);b.classList.remove('p')}))});
+$('#pn-s').addEventListener('pointerdown',e=>{e.preventDefault();pinLaunch()});
+const cv=$('#pn-cv');cv.addEventListener('pointerdown',e=>{e.preventDefault();const r=cv.getBoundingClientRect(),i=e.clientX-r.left<r.width/2?0:1;PN.pt[e.pointerId]=i;setFl(i,1)});['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,e=>{const i=PN.pt[e.pointerId];if(i!==undefined){setFl(i,0);delete PN.pt[e.pointerId]}}));
+$('#pn-ov').onclick=e=>{const id=e.target.id;if(id==='pn-go')pinStart();else if(id==='pn-mv')moveMachine()};
+$('#pn-mb').onclick=e=>{const d=e.target.dataset;if(d.b)bill(+d.b);else if(d.f)addFund(+d.f);PN.hud='';pinUi()};
+$('#pn-mv2').onclick=moveMachine;$('#pn-ex').onclick=()=>{if(PN.run)toast('ゲーム終了後に操作してください');else askExit()};
+$('#pn-gu').onclick=()=>{if(PN.run&&PN.st!=='over'){PN.st='over';PN.endAt=PN.t}};
+$('#pn-so').onclick=()=>{ac();S.mute=!S.mute;vg();save();PN.hud='';pinUi()};
+$('#pn-v').oninput=e=>{ac();S.vol=+e.target.value;S.mute=false;vg();save();PN.hud=''};
+$('#p-oth').onclick=()=>{renderOth();go('oth')};$('#o-back').onclick=()=>{renderPick();go('pick')};
+$('#og').onclick=e=>{const b=e.target.closest('[data-g]'),g=b&&GAMES[b.dataset.g];if(g&&g.ok)g.start()}}
+pinInit();
 addEventListener('pointerdown',()=>ac(),true);
 document.addEventListener('pointerdown',e=>{if(e.target.closest('.scr button,.pp button'))sfx('click')});
 topBtns();lamp('');ui();requestAnimationFrame(frame);
